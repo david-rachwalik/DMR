@@ -36,3 +36,15 @@ stages:
       inputs:
         platform: '$(buildPlatform)'
         configuration: '$(buildConfiguration)'
+
+    - task: CopyFiles@2
+      displayName: 'Stage build output'
+      inputs:
+        sourceFolder: $(Agent.BuildDirectory)
+        targetFolder: $(Build.ArtifactStagingDirectory)
+
+    - task: PublishBuildArtifacts@1
+      displayName: 'Publish build artifacts'
+      inputs:
+        pathToPublish: $(Build.ArtifactStagingDirectory)
+        artifactName: 'drop'
