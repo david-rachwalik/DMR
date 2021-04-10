@@ -5,10 +5,11 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.EntityFrameworkCore;
+using DMR.WebApp.Data;
 
 namespace DMR.WebApp
 {
@@ -16,8 +17,8 @@ namespace DMR.WebApp
     {
         public Startup(IConfiguration configuration, IWebHostEnvironment env)
         {
-            Environment = env;
             Configuration = configuration;
+            Environment = env;
         }
 
         public IConfiguration Configuration { get; }
@@ -27,12 +28,20 @@ namespace DMR.WebApp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddRazorPages();
+
+            services.AddDbContext<MainContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("MainContext")));
+
+            if (Environment.IsDevelopment())
+            {
+                services.AddDatabaseDeveloperPageExceptionFilter();
+            }
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app)
         {
-            if (env.IsDevelopment())
+            if (Environment.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
                 //app.UseDatabaseErrorPage();
