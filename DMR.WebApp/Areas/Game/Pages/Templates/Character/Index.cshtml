@@ -1,0 +1,204 @@
+﻿@page
+@model DMR.WebApp.Areas.Game.Pages.Templates.Character.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CharacterTemplate[0].ParentMomId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CharacterTemplate[0].ParentDadId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CharacterTemplate[0].SoulOwnerId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CharacterTemplate[0].Nickname)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CharacterTemplate[0].Job)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CharacterTemplate[0].UriSmutosaurWiki)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CharacterTemplate[0].UriRevampWikia)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CharacterTemplate[0].Birthdate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CharacterTemplate[0].Gender)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CharacterTemplate[0].Temperment)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CharacterTemplate[0].CampRecruit)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CharacterTemplate[0].Follower)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CharacterTemplate[0].Lover)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CharacterTemplate[0].Slave)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CharacterTemplate[0].HeroicDeeds)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CharacterTemplate[0].Skin)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CharacterTemplate[0].Masculinity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CharacterTemplate[0].Femininity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CharacterTemplate[0].Fitness)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CharacterTemplate[0].Fatness)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CharacterTemplate[0].Dimension)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CharacterTemplate[0].Release)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CharacterTemplate[0].IsLive)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CharacterTemplate[0].Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CharacterTemplate[0].Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CharacterTemplate[0].Who)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CharacterTemplate[0].What)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CharacterTemplate[0].When)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CharacterTemplate[0].Stage)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.CharacterTemplate) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ParentMomId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ParentDadId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SoulOwnerId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nickname)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Job)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UriSmutosaurWiki)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UriRevampWikia)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Birthdate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Temperment)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CampRecruit)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Follower)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Lover)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Slave)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.HeroicDeeds)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Skin)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Masculinity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Femininity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fitness)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fatness)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dimension)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Release)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsLive)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Who)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.What)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.When)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Stage)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

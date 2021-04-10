@@ -1,0 +1,53 @@
+﻿@page
+@model WebApp.Areas.Game.Pages.Play.DataModel
+
+@{
+    ViewData["Title"] = "Index";
+
+    string btnDefault = "coc_btn btn btn-default";
+    string btnIsSaved = Model.IsContinueEnabled ? string.Empty : " disabled";
+}
+
+@*<h2 style="color: #ffffcc; text-align: center;">Game Play</h2>*@
+
+<div class="row">
+    <div class="col-sm-12">
+        <form method="post">
+            <button asp-area="CoC" asp-page="./NewGame" class="@btnDefault">New Game</button>
+            <button type="button" class="@btnDefault@btnIsSaved">Data</button>
+        </form>
+    </div>
+</div><br />
+
+<div class="row">
+    <div class="col-sm-3">(stats)</div>
+    <div id="coc_stage" class="col-sm-9">
+        <div id="coc_stage_background"></div>
+        <div id="coc_stage_text">
+            <ol>
+                @*@foreach (var save in Model.UserProfile.Saves)
+                {
+                    <li id="@save.Id">@save.Title</li>
+                }*@
+            </ol>
+        </div>
+    </div>
+</div>
+<br />
+
+<div class="row" style="text-align: right;">
+    <div class="col-sm-offset-1 col-sm-11">
+        <button class="coc_btn_hide btn btn-default disabled"></button>
+        <button class="coc_btn btn btn-default">Image Credits</button>
+        <button class="coc_btn btn btn-default">Credits</button>
+        <button class="coc_btn_hide btn btn-default disabled"></button>
+        <button class="coc_btn btn btn-default">Instructions</button>
+    </div>
+    <div class="col-sm-offset-1 col-sm-11">
+        <button class="coc_btn btn btn-default">Debug Info</button>
+        <button class="coc_btn_hide btn btn-default"></button>
+        <button class="coc_btn_hide btn btn-default disabled"></button>
+        <button class="coc_btn btn btn-default">Settings</button>
+        <button class="coc_btn_hide btn btn-default disabled"></button>
+    </div>
+</div>

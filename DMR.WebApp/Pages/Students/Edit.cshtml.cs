@@ -13,9 +13,9 @@ namespace DMR.WebApp.Pages.Students
 {
     public class EditModel : PageModel
     {
-        private readonly DMR.WebApp.Data.MainContext _context;
+        private readonly DMR.WebApp.Data.ApplicationContext _context;
 
-        public EditModel(DMR.WebApp.Data.MainContext context)
+        public EditModel(DMR.WebApp.Data.ApplicationContext context)
         {
             _context = context;
         }

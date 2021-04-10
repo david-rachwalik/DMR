@@ -7,9 +7,9 @@ namespace DMR.WebApp.Pages.Instructors
 {
     public class CreateModel : InstructorCoursesPageModel
     {
-        private readonly DMR.WebApp.Data.MainContext _context;
+        private readonly DMR.WebApp.Data.ApplicationContext _context;
 
-        public CreateModel(DMR.WebApp.Data.MainContext context)
+        public CreateModel(DMR.WebApp.Data.ApplicationContext context)
         {
             _context = context;
         }

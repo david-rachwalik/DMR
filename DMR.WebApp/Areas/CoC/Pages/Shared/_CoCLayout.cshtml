@@ -1,0 +1,34 @@
+﻿@{
+    ViewData["Brand"] = "Corruption of Champions";
+    ViewData["NavbarId"] = string.Empty;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - @ViewData["Brand"]</title>
+
+    <partial name="_MainStylesPartial" />
+</head>
+<body style="background-color: black;">
+    <partial name="_NavbarAreaPartial" />
+
+    <partial name="_CookieConsentPartial" />
+
+    <div class="container-fluid body-content" style="padding: 0;">
+        <div class="coc_bg" style="padding: 15px; position: relative;">
+            @RenderBody()
+        </div>
+        <hr />
+        <footer>
+            <p>&copy; 2018 - .NET Core - BootleySqueeDoodle</p>
+        </footer>
+    </div>
+
+    <partial name="_MainScriptsPartial" />
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

@@ -12,9 +12,9 @@ namespace DMR.WebApp.Pages.Students
 {
     public class IndexModel : PageModel
     {
-        private readonly MainContext _context;
+        private readonly ApplicationContext _context;
 
-        public IndexModel(MainContext context)
+        public IndexModel(ApplicationContext context)
         {
             _context = context;
         }

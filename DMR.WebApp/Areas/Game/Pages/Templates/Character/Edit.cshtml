@@ -1,0 +1,175 @@
+﻿@page
+@model DMR.WebApp.Areas.Game.Pages.Templates.Character.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>CharacterTemplate</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="CharacterTemplate.ParentMomId" class="control-label"></label>
+                <input asp-for="CharacterTemplate.ParentMomId" class="form-control" />
+                <span asp-validation-for="CharacterTemplate.ParentMomId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CharacterTemplate.ParentDadId" class="control-label"></label>
+                <input asp-for="CharacterTemplate.ParentDadId" class="form-control" />
+                <span asp-validation-for="CharacterTemplate.ParentDadId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CharacterTemplate.SoulOwnerId" class="control-label"></label>
+                <input asp-for="CharacterTemplate.SoulOwnerId" class="form-control" />
+                <span asp-validation-for="CharacterTemplate.SoulOwnerId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CharacterTemplate.Nickname" class="control-label"></label>
+                <input asp-for="CharacterTemplate.Nickname" class="form-control" />
+                <span asp-validation-for="CharacterTemplate.Nickname" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CharacterTemplate.Job" class="control-label"></label>
+                <input asp-for="CharacterTemplate.Job" class="form-control" />
+                <span asp-validation-for="CharacterTemplate.Job" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CharacterTemplate.UriSmutosaurWiki" class="control-label"></label>
+                <input asp-for="CharacterTemplate.UriSmutosaurWiki" class="form-control" />
+                <span asp-validation-for="CharacterTemplate.UriSmutosaurWiki" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CharacterTemplate.UriRevampWikia" class="control-label"></label>
+                <input asp-for="CharacterTemplate.UriRevampWikia" class="form-control" />
+                <span asp-validation-for="CharacterTemplate.UriRevampWikia" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CharacterTemplate.Birthdate" class="control-label"></label>
+                <input asp-for="CharacterTemplate.Birthdate" class="form-control" />
+                <span asp-validation-for="CharacterTemplate.Birthdate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CharacterTemplate.Gender" class="control-label"></label>
+                <select asp-for="CharacterTemplate.Gender" class="form-control"></select>
+                <span asp-validation-for="CharacterTemplate.Gender" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CharacterTemplate.Temperment" class="control-label"></label>
+                <select asp-for="CharacterTemplate.Temperment" class="form-control"></select>
+                <span asp-validation-for="CharacterTemplate.Temperment" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="CharacterTemplate.CampRecruit" /> @Html.DisplayNameFor(model => model.CharacterTemplate.CampRecruit)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="CharacterTemplate.Follower" /> @Html.DisplayNameFor(model => model.CharacterTemplate.Follower)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="CharacterTemplate.Lover" /> @Html.DisplayNameFor(model => model.CharacterTemplate.Lover)
+                </label>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="CharacterTemplate.Slave" /> @Html.DisplayNameFor(model => model.CharacterTemplate.Slave)
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="CharacterTemplate.HeroicDeeds" class="control-label"></label>
+                <input asp-for="CharacterTemplate.HeroicDeeds" class="form-control" />
+                <span asp-validation-for="CharacterTemplate.HeroicDeeds" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CharacterTemplate.Skin" class="control-label"></label>
+                <select asp-for="CharacterTemplate.Skin" class="form-control"></select>
+                <span asp-validation-for="CharacterTemplate.Skin" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CharacterTemplate.Masculinity" class="control-label"></label>
+                <input asp-for="CharacterTemplate.Masculinity" class="form-control" />
+                <span asp-validation-for="CharacterTemplate.Masculinity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CharacterTemplate.Femininity" class="control-label"></label>
+                <input asp-for="CharacterTemplate.Femininity" class="form-control" />
+                <span asp-validation-for="CharacterTemplate.Femininity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CharacterTemplate.Fitness" class="control-label"></label>
+                <input asp-for="CharacterTemplate.Fitness" class="form-control" />
+                <span asp-validation-for="CharacterTemplate.Fitness" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CharacterTemplate.Fatness" class="control-label"></label>
+                <input asp-for="CharacterTemplate.Fatness" class="form-control" />
+                <span asp-validation-for="CharacterTemplate.Fatness" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CharacterTemplate.Dimension" class="control-label"></label>
+                <select asp-for="CharacterTemplate.Dimension" class="form-control"></select>
+                <span asp-validation-for="CharacterTemplate.Dimension" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CharacterTemplate.Release" class="control-label"></label>
+                <input asp-for="CharacterTemplate.Release" class="form-control" />
+                <span asp-validation-for="CharacterTemplate.Release" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="CharacterTemplate.IsLive" /> @Html.DisplayNameFor(model => model.CharacterTemplate.IsLive)
+                </label>
+            </div>
+            <input type="hidden" asp-for="CharacterTemplate.Id" />
+            <div class="form-group">
+                <label asp-for="CharacterTemplate.Title" class="control-label"></label>
+                <input asp-for="CharacterTemplate.Title" class="form-control" />
+                <span asp-validation-for="CharacterTemplate.Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CharacterTemplate.Description" class="control-label"></label>
+                <input asp-for="CharacterTemplate.Description" class="form-control" />
+                <span asp-validation-for="CharacterTemplate.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CharacterTemplate.Who" class="control-label"></label>
+                <input asp-for="CharacterTemplate.Who" class="form-control" />
+                <span asp-validation-for="CharacterTemplate.Who" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CharacterTemplate.What" class="control-label"></label>
+                <input asp-for="CharacterTemplate.What" class="form-control" />
+                <span asp-validation-for="CharacterTemplate.What" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CharacterTemplate.When" class="control-label"></label>
+                <input asp-for="CharacterTemplate.When" class="form-control" />
+                <span asp-validation-for="CharacterTemplate.When" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CharacterTemplate.Stage" class="control-label"></label>
+                <select asp-for="CharacterTemplate.Stage" class="form-control"></select>
+                <span asp-validation-for="CharacterTemplate.Stage" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

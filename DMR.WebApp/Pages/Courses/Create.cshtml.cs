@@ -6,9 +6,9 @@ namespace DMR.WebApp.Pages.Courses
 {
     public class CreateModel : DepartmentNamePageModel
     {
-        private readonly DMR.WebApp.Data.MainContext _context;
+        private readonly DMR.WebApp.Data.ApplicationContext _context;
 
-        public CreateModel(DMR.WebApp.Data.MainContext context)
+        public CreateModel(DMR.WebApp.Data.ApplicationContext context)
         {
             _context = context;
         }

@@ -1,0 +1,122 @@
+﻿@page
+@model WebApp.Areas.Game.Pages.Profile.IndexModel
+
+@{
+    ViewData["Title"] = "Profile";
+    ViewData["When"] = Model.UserProfile.When.ToString("MM/dd/yyyy");
+}
+
+<h2>@ViewData["Title"]: @Html.DisplayFor(m => m.UserProfile.Title)</h2>
+@*<h5>Name: @Model.User.Identity.Name</h5>*@
+@*<h5>IsAuthenticated: @Model.User.Identity.IsAuthenticated</h5>*@
+
+<div class="panel panel-default">
+    <div class="panel-body" style="position: relative;">
+        <a asp-page="Create">Create New</a>
+        <div class="sexbound_profile_when"><strong>Joined</strong>: @ViewData["When"]</div>
+    </div>
+
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(m => m.UserProfile.Description)
+            </th>
+            <td>
+                @Html.DisplayFor(m => m.UserProfile.Description)
+            </td>
+        </tr>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(m => m.UserProfile.Email)
+            </th>
+            <td>
+                @Html.DisplayFor(m => m.UserProfile.Email)
+            </td>
+        </tr>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(m => m.UserProfile.Theme)
+            </th>
+            <td>
+                @Html.DisplayFor(m => m.UserProfile.Theme)
+            </td>
+        </tr>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(m => m.UserProfile.HideTutorialTips)
+            </th>
+            <td>
+                @Html.DisplayFor(m => m.UserProfile.HideTutorialTips)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@Model.UserProfile.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@Model.UserProfile.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@Model.UserProfile.Id">Delete</a>
+            </td>
+            <td></td>
+        </tr>
+    </table>
+</div>
+
+
+<h2>Game Settings</h2>
+
+<div class="panel-group">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">Character Species Active</h3>
+        </div>
+        <div class="panel-body" style="position: relative;">
+            You have the power to choose which wonderous races to experience in game.
+            Get enthralled in a world fit to your style.
+        </div>
+        <div class="panel-footer">
+            @foreach (var tag in Model.Species)
+            {
+                <span class="label label-info" title="@Html.DisplayFor(m => @tag.Description)">@Html.DisplayFor(m => @tag.Title)</span>
+            }
+        </div>
+    </div>
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">Character Conditions Active</h3>
+        </div>
+        <div class="panel-body" style="position: relative;">
+            In addition to races, character can be subjected to a multitude of form-altering, long-lasting effects.  Be it a case of lycanthropy or
+            wafting through the afterlife as a lecherous ghost.
+            <br /><br />
+
+            <strong>Possible Outfit/Job System</strong>:  glasses, cosplay, swimsuits, maids, school girls, etc.
+            <br />
+            <span style="font-style: italic;">Maid</span>: someone that cleans, cooks food, and hopes to please their master however they can...
+            <br />
+            <span style="font-style: italic;">Nurse</span>: Someone who nurses you back to health by draining you out.  (fatigue => health)
+            <br />
+            <span style="font-style: italic;">Teacher</span>: Someone who teaches things like math, reading, history, and sex!
+        </div>
+        <div class="panel-footer">
+            @foreach (var tag in Model.Conditions)
+            {
+                <span class="label label-info" title="@Html.DisplayFor(m => @tag.Description)">@Html.DisplayFor(m => @tag.Title)</span>
+            }
+        </div>
+    </div>
+
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <h3 class="panel-title">Fetishes Active</h3>
+        </div>
+        <div class="panel-body" style="position: relative;">
+            Selecting your preferred fetishes will alter game encounters to your liking.
+        </div>
+        <div class="panel-footer">
+            @foreach (var tag in Model.Fetishes)
+            {
+                <span class="label label-info" title="@Html.DisplayFor(m => @tag.Description)">@Html.DisplayFor(m => @tag.Title)</span>
+            }
+        </div>
+    </div>
+</div>

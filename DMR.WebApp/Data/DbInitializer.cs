@@ -9,12 +9,12 @@ namespace DMR.WebApp.Data
 {
     public static class DbInitializer
     {
-        public static void Initialize(MainContext context)
+        public static void Initialize(ApplicationContext context)
         {
             Seed(context);
         }
 
-        public static void Seed(MainContext context)
+        public static void Seed(ApplicationContext context)
         {
             MovieSeed.Initialize(context);
             StudentSeed.Initialize(context);

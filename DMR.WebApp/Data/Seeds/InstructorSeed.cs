@@ -9,7 +9,7 @@ namespace DMR.WebApp.Data.Seeds
 {
     public static class InstructorSeed
     {
-        public static void Initialize(MainContext context)
+        public static void Initialize(ApplicationContext context)
         {
             // Look for any instructors
             if (context.Instructors.Any())

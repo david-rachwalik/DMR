@@ -1,0 +1,85 @@
+﻿@page
+@model WebApp.Areas.Game.Pages.Profile.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>UserProfile</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.UserProfile.Who)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.UserProfile.Who)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.UserProfile.Email)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.UserProfile.Email)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.UserProfile.Theme)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.UserProfile.Theme)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.UserProfile.HideTutorialTips)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.UserProfile.HideTutorialTips)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.UserProfile.Title)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.UserProfile.Title)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.UserProfile.Description)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.UserProfile.Description)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.UserProfile.Who)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.UserProfile.Who)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.UserProfile.What)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.UserProfile.What)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.UserProfile.When)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.UserProfile.When)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.UserProfile.Dimension)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.UserProfile.Dimension)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.UserProfile.Stage)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.UserProfile.Stage)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.UserProfile.Id">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

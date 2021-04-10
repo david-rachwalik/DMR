@@ -1,0 +1,45 @@
+﻿@page
+@model WebApp.Areas.Info.Pages.IndexModel
+@{
+    ViewData["Title"] = "Game Info";
+
+    string buttonClassContinue = "btn btn-default";
+    if (Model.IsContinueEnabled == false) { buttonClassContinue += " disabled"; }
+}
+
+<div style="text-align: center;">
+    <div id="coc_title_group">
+        <h1 id="coc_title">Corruption of Champions</h1>
+        <h4 id="coc_subtitle">an erotic fantasy game</h4>
+    </div>
+    <br /><br />
+
+    <div>
+        <span style="font-size: 2em;" class="glyphicon glyphicon-alert"></span>
+        This is an adult game meant to be played by adults.
+        Please don't play this game if you're under the age of 18 and certainly don't
+        play if strange and exotic fetishes disgust you.
+        <b>You have been warned!</b>
+    </div>
+    <br />
+
+    <div class="container coc_btn_group">
+        <div class="row">
+            <div class="col-xs-3"><button type="button" class="@buttonClassContinue">Continue</button></div>
+            <div class="col-xs-3"><button type="button" class="btn btn-default"><a asp-area="Game" asp-page="/Play/NewGame">New Game</a></button></div>
+            <div class="col-xs-3"><button type="button" class="btn btn-default">Data</button></div>
+            <div class="col-xs-3"><button type="button" class="btn btn-default">Options</button></div>
+        </div>
+        <div class="row">
+            <div class="col-xs-3"><button type="button" class="btn btn-default">Achievements</button></div>
+            <div class="col-xs-3"><button type="button" class="btn btn-default">Instructions</button></div>
+            <div class="col-xs-3"><button type="button" class="btn btn-default">Credits</button></div>
+            <div class="col-xs-3"><button type="button" class="btn btn-default">Mod Thread</button></div>
+        </div>
+    </div>
+    <br /><br />
+
+    <span>www.fenoxo.com</span>
+
+    <div>1.0.2_mod_1.4.13b, Release Build</div>
+</div>

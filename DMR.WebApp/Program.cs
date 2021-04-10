@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using System;
+using DMR.WebApp.Extensions;
 
 namespace DMR.WebApp
 {
@@ -11,13 +12,16 @@ namespace DMR.WebApp
     {
         public static void Main(string[] args)
         {
-            var host = CreateHostBuilder(args).Build();
+            //var host = CreateHostBuilder(args).Build();
 
-            CreateDbIfNotExists(host);
+            //CreateDbIfNotExists(host);
 
-            host.Run();
+            //host.Run();
+
+            CreateHostBuilder(args).Build().MigrateDatabase().Run();
         }
 
+        // Old method -- archive when satisfied
         private static void CreateDbIfNotExists(IHost host)
         {
             using (var scope = host.Services.CreateScope())
@@ -25,7 +29,7 @@ namespace DMR.WebApp
                 var services = scope.ServiceProvider;
                 try
                 {
-                    var context = services.GetRequiredService<MainContext>();
+                    var context = services.GetRequiredService<ApplicationContext>();
                     DbInitializer.Initialize(context);
                 }
                 catch (Exception ex)

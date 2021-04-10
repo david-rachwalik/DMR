@@ -10,6 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.EntityFrameworkCore;
 using DMR.WebApp.Data;
+using DMR.WebApp.Extensions;
 
 namespace DMR.WebApp
 {
@@ -29,8 +30,10 @@ namespace DMR.WebApp
         {
             services.AddRazorPages();
 
-            services.AddDbContext<MainContext>(options =>
-                    options.UseSqlServer(Configuration.GetConnectionString("MainContext")));
+            services.AddDbContext<ApplicationContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("ApplicationContext")));
+            
+            services.AddDataServices();
 
             if (Environment.IsDevelopment())
             {

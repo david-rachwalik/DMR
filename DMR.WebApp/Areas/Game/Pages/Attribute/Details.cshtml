@@ -1,0 +1,85 @@
+﻿@page
+@model WebApp.Areas.Game.Pages.Attribute.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Attribute</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Attribute.Abbreviation)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Attribute.Abbreviation)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Attribute.Format)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Attribute.Format)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Attribute.Style)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Attribute.Style)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Attribute.Value)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Attribute.Value)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Attribute.Title)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Attribute.Title)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Attribute.Description)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Attribute.Description)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Attribute.Who)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Attribute.Who)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Attribute.What)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Attribute.What)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Attribute.When)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Attribute.When)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Attribute.Dimension)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Attribute.Dimension)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Attribute.Stage)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Attribute.Stage)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Attribute.Id">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

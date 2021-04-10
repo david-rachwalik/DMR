@@ -1,0 +1,46 @@
+﻿@page
+@model WebApp.Areas.CoC.Pages.IndexModel
+@{
+    ViewData["Title"] = "Game - Home page :3";
+
+    string btnDefault = "btn btn-default";
+    string btnContinue = Model.IsContinueEnabled ? String.Empty : " disabled";
+}
+
+<div style="text-align: center;">
+    <div id="coc_title_group">
+        <h1 id="coc_title">Corruption of Champions</h1>
+        <h4 id="coc_subtitle">an erotic fantasy game</h4>
+    </div><br /><br />
+
+    <div>
+        <span style="font-size: 2em;" class="glyphicon glyphicon-alert"></span>
+        This is an adult game meant to be played by adults.<br />
+        Please don't play this game if you're under the age of 18 and certainly don't
+        play if strange and exotic fetishes disgust you.<br />
+        <b>You have been warned!</b>
+    </div><br /><br />
+
+    <div>
+        <form method="post">
+            <button asp-area="CoC" asp-page="/Play/Index" class="@btnDefault btn-lg">
+                ENTER
+            </button>
+        </form>
+    </div><br /><br />
+
+    <span>www.fenoxo.com</span>
+    <div>1.0.2_mod_1.4.13b, Release Build</div>
+</div>
+
+<div style="position: absolute; top: 0; left: 0;">
+    <a href="https://wiki.smutosaur.us/CoC/Main_Page" target="_blank">Corruption of Champions Wiki</a>
+    <br />
+
+    <a href="http://coc-revamp.wikia.com/wiki/Category:CoC" target="_blank">CoC Revamp Wiki - All</a> |
+    <a href="http://coc-revamp.wikia.com/wiki/Category:CoC_Orig" target="_blank">CoC Revamp Wiki - Original Game</a> |
+    <a href="http://coc-revamp.wikia.com/wiki/Achievements" target="_blank">CoC Revamp Wiki - Achievements</a>
+    <br />
+
+    <a href="https://gamingbuff.com/best-games-similar-to-corruption-of-champions/" target="_blank">Best Games Similar to Corruption of Champions</a>
+</div>

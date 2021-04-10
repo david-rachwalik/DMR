@@ -1,0 +1,114 @@
+﻿@page
+@model WebApp.Areas.Game.Pages.Character.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+
+<h4>Character</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="CharacterTemplate.Species" class="control-label"></label>
+                <input asp-for="CharacterTemplate.Species" class="form-control" />
+                <span asp-validation-for="CharacterTemplate.Species" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CharacterTemplate.Skin" class="control-label"></label>
+                <input asp-for="CharacterTemplate.Skin" class="form-control" />
+                <span asp-validation-for="CharacterTemplate.Skin" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CharacterTemplate.Birthdate" class="control-label"></label>
+                <input asp-for="CharacterTemplate.Birthdate" class="form-control" />
+                <span asp-validation-for="CharacterTemplate.Birthdate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CharacterTemplate.Masculinity" class="control-label"></label>
+                <input asp-for="CharacterTemplate.Masculinity" class="form-control" />
+                <span asp-validation-for="CharacterTemplate.Masculinity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CharacterTemplate.Femininity" class="control-label"></label>
+                <input asp-for="CharacterTemplate.Femininity" class="form-control" />
+                <span asp-validation-for="CharacterTemplate.Femininity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CharacterTemplate.Fitness" class="control-label"></label>
+                <input asp-for="CharacterTemplate.Fitness" class="form-control" />
+                <span asp-validation-for="CharacterTemplate.Fitness" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CharacterTemplate.Fatness" class="control-label"></label>
+                <input asp-for="CharacterTemplate.Fatness" class="form-control" />
+                <span asp-validation-for="CharacterTemplate.Fatness" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CharacterTemplate.Agility" class="control-label"></label>
+                <input asp-for="CharacterTemplate.Agility" class="form-control" />
+                <span asp-validation-for="CharacterTemplate.Agility" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CharacterTemplate.Strength" class="control-label"></label>
+                <input asp-for="CharacterTemplate.Strength" class="form-control" />
+                <span asp-validation-for="CharacterTemplate.Strength" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CharacterTemplate.Speed" class="control-label"></label>
+                <input asp-for="CharacterTemplate.Speed" class="form-control" />
+                <span asp-validation-for="CharacterTemplate.Speed" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CharacterTemplate.Vitality" class="control-label"></label>
+                <input asp-for="CharacterTemplate.Vitality" class="form-control" />
+                <span asp-validation-for="CharacterTemplate.Vitality" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CharacterTemplate.Intelligence" class="control-label"></label>
+                <input asp-for="CharacterTemplate.Intelligence" class="form-control" />
+                <span asp-validation-for="CharacterTemplate.Intelligence" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CharacterTemplate.Willpower" class="control-label"></label>
+                <input asp-for="CharacterTemplate.Willpower" class="form-control" />
+                <span asp-validation-for="CharacterTemplate.Willpower" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CharacterTemplate.Esteem" class="control-label"></label>
+                <input asp-for="CharacterTemplate.Esteem" class="form-control" />
+                <span asp-validation-for="CharacterTemplate.Esteem" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CharacterTemplate.Luck" class="control-label"></label>
+                <input asp-for="CharacterTemplate.Luck" class="form-control" />
+                <span asp-validation-for="CharacterTemplate.Luck" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CharacterTemplate.Title" class="control-label"></label>
+                <input asp-for="CharacterTemplate.Title" class="form-control" />
+                <span asp-validation-for="CharacterTemplate.Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CharacterTemplate.Description" class="control-label"></label>
+                <input asp-for="CharacterTemplate.Description" class="form-control" />
+                <span asp-validation-for="CharacterTemplate.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

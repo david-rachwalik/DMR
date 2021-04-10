@@ -11,9 +11,9 @@ namespace DMR.WebApp.Pages
 {
     public class StudentStatsModel : PageModel
     {
-        private readonly MainContext _context;
+        private readonly ApplicationContext _context;
 
-        public StudentStatsModel(MainContext context)
+        public StudentStatsModel(ApplicationContext context)
         {
             _context = context;
         }

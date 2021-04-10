@@ -8,9 +8,9 @@ namespace DMR.WebApp.Pages.Courses
 {
     public class DetailsModel : PageModel
     {
-        private readonly DMR.WebApp.Data.MainContext _context;
+        private readonly DMR.WebApp.Data.ApplicationContext _context;
 
-        public DetailsModel(DMR.WebApp.Data.MainContext context)
+        public DetailsModel(DMR.WebApp.Data.ApplicationContext context)
         {
             _context = context;
         }

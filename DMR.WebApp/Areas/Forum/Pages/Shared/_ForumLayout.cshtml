@@ -1,0 +1,35 @@
+﻿@{
+    ViewData["Brand"] = "David Rachwalik";
+    ViewData["NavbarId"] = "forum";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - @ViewData["Brand"]</title>
+
+    <partial name="_MainStylesPartial" />
+</head>
+<body class="forum_bg">
+    <partial name="_NavbarAreaPartial" />
+
+    <partial name="_CookieConsentPartial" />
+
+    <div class="container body-content">
+        @RenderBody()
+    </div>
+    <hr />
+
+    <footer>
+        <div class="container">
+            <p>David Rachwalik | 2019</p>
+        </div>
+    </footer>
+
+    <partial name="_MainScriptsPartial" />
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

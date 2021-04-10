@@ -8,9 +8,9 @@ namespace DMR.WebApp.Pages.Instructors
 {
     public class EditModel : InstructorCoursesPageModel
     {
-        private readonly DMR.WebApp.Data.MainContext _context;
+        private readonly DMR.WebApp.Data.ApplicationContext _context;
 
-        public EditModel(DMR.WebApp.Data.MainContext context)
+        public EditModel(DMR.WebApp.Data.ApplicationContext context)
         {
             _context = context;
         }

@@ -1,0 +1,25 @@
+﻿@page
+@model WebApp.Areas.Game.Pages.Play.NewGameModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Game Play</h2>
+
+<div>
+    <h4>(Live)</h4><hr />
+
+    <h6>User Profile Creation Station... Excelsior!</h6>
+
+
+</div>
+<hr />
+
+<div asp-validation-summary="All"></div>
+<form method="post">
+    @*<input type="hidden" asp-for="SaveState.UserProfile.Id" />*@
+    @*<input type="hidden" asp-for="User.Identity.GetHashCode" />*@
+    @*<input type="hidden" asp-for="Character.Id" />*@
+    <input type="submit" asp-action="NewGame" value="Create New Game" class="btn btn-default" />
+</form>

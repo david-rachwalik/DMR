@@ -1,0 +1,44 @@
+﻿@page
+@model WebApp.Areas.Game.Pages.Effect.IndexModel
+
+@{
+    ViewData["Title"] = "Effects";
+}
+
+
+<h2>@ViewData["Title"]</h2>
+
+<div id="coc_effect_group" class="panel-group">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <p>
+                Effects are any conditions that alter the current status of a character.
+                These can range from friendly healing effects to being caused harm by
+                enemy attacks, being swooned or lusted upon, persuaged, incapacitated, etc.
+            </p><br />
+
+            <a href="http://finalfantasy.wikia.com/wiki/Status_effect" target="_blank">Final Fantasy Wikia - Status Effect</a><br />
+            <a href="https://strategywiki.org/wiki/Final_Fantasy_XIII/Status_effects" target="_blank">Final Fantasy XIII - Status Effects</a><br />
+            <a href="http://lisa-rpg.wikia.com/wiki/Status_Effects" target="_blank">Status Effects</a>
+            <a href="https://tvtropes.org/pmwiki/pmwiki.php/Main/StandardStatusEffects" target="_blank">Standard Status Effects</a>
+        </div>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">How Effects Work</h3>
+            <a asp-area="Game" asp-page="/Effect/Create"><span class="glyphicon glyphicon-plus"></span></a>
+        </div>
+        <div class="panel-body">
+            <span>
+                Effects can alter a character's attributes and other factors about their state.
+            </span>
+        </div>
+        <div class="panel-footer">
+            @foreach (var element in Model.Elements)
+            {
+                <span class="label label-info">@element</span>
+            }
+        </div>
+    </div>
+</div>

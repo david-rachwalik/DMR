@@ -9,7 +9,7 @@ namespace DMR.WebApp.Data.Seeds
 {
     public static class OfficeAssignmentSeed
     {
-        public static void Initialize(MainContext context)
+        public static void Initialize(ApplicationContext context)
         {
             // Look for any office assignments
             if (context.OfficeAssignments.Any())

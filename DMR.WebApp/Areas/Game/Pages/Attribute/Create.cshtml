@@ -1,0 +1,84 @@
+﻿@page
+@model WebApp.Areas.Game.Pages.Attribute.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Create</h2>
+
+<h4>Attribute</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Attribute.Abbreviation" class="control-label"></label>
+                <input asp-for="Attribute.Abbreviation" class="form-control" />
+                <span asp-validation-for="Attribute.Abbreviation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Attribute.Format" class="control-label"></label>
+                <select asp-for="Attribute.Format" class="form-control"></select>
+                <span asp-validation-for="Attribute.Format" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Attribute.Style" class="control-label"></label>
+                <select asp-for="Attribute.Style" class="form-control"></select>
+                <span asp-validation-for="Attribute.Style" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Attribute.Value" class="control-label"></label>
+                <input asp-for="Attribute.Value" class="form-control" />
+                <span asp-validation-for="Attribute.Value" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Attribute.Title" class="control-label"></label>
+                <input asp-for="Attribute.Title" class="form-control" />
+                <span asp-validation-for="Attribute.Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Attribute.Description" class="control-label"></label>
+                <input asp-for="Attribute.Description" class="form-control" />
+                <span asp-validation-for="Attribute.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Attribute.Who" class="control-label"></label>
+                <input asp-for="Attribute.Who" class="form-control" />
+                <span asp-validation-for="Attribute.Who" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Attribute.What" class="control-label"></label>
+                <input asp-for="Attribute.What" class="form-control" />
+                <span asp-validation-for="Attribute.What" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Attribute.When" class="control-label"></label>
+                <input asp-for="Attribute.When" class="form-control" />
+                <span asp-validation-for="Attribute.When" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Attribute.Dimension" class="control-label"></label>
+                <select asp-for="Attribute.Dimension" class="form-control"></select>
+                <span asp-validation-for="Attribute.Dimension" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Attribute.Stage" class="control-label"></label>
+                <select asp-for="Attribute.Stage" class="form-control"></select>
+                <span asp-validation-for="Attribute.Stage" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

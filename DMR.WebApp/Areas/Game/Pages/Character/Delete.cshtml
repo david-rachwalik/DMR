@@ -1,0 +1,124 @@
+﻿@page
+@model WebApp.Areas.Game.Pages.Character.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Character</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(m => Model.FirstSpecies)
+        </dt>
+        <dd>
+            @String.Join(",", Model.Species)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(m => m.CharacterTemplate.Skin)
+        </dt>
+        <dd>
+            @Html.DisplayFor(m => m.CharacterTemplate.Skin)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(m => m.CharacterTemplate.Birthdate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(m => m.CharacterTemplate.Birthdate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(m => m.CharacterTemplate.Masculinity)
+        </dt>
+        <dd>
+            @Html.DisplayFor(m => m.CharacterTemplate.Masculinity)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(m => m.CharacterTemplate.Femininity)
+        </dt>
+        <dd>
+            @Html.DisplayFor(m => m.CharacterTemplate.Femininity)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(m => m.CharacterTemplate.Fitness)
+        </dt>
+        <dd>
+            @Html.DisplayFor(m => m.CharacterTemplate.Fitness)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(m => m.CharacterTemplate.Fatness)
+        </dt>
+        <dd>
+            @Html.DisplayFor(m => m.CharacterTemplate.Fatness)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(m => m.CharacterTemplate.Agility)
+        </dt>
+        <dd>
+            @Html.DisplayFor(m => m.CharacterTemplate.Agility)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(m => m.CharacterTemplate.Strength)
+        </dt>
+        <dd>
+            @Html.DisplayFor(m => m.CharacterTemplate.Strength)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(m => m.CharacterTemplate.Speed)
+        </dt>
+        <dd>
+            @Html.DisplayFor(m => m.CharacterTemplate.Speed)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(m => m.CharacterTemplate.Vitality)
+        </dt>
+        <dd>
+            @Html.DisplayFor(m => m.CharacterTemplate.Vitality)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(m => m.CharacterTemplate.Intelligence)
+        </dt>
+        <dd>
+            @Html.DisplayFor(m => m.CharacterTemplate.Intelligence)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(m => m.CharacterTemplate.Willpower)
+        </dt>
+        <dd>
+            @Html.DisplayFor(m => m.CharacterTemplate.Willpower)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(m => m.CharacterTemplate.Esteem)
+        </dt>
+        <dd>
+            @Html.DisplayFor(m => m.CharacterTemplate.Esteem)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(m => m.CharacterTemplate.Luck)
+        </dt>
+        <dd>
+            @Html.DisplayFor(m => m.CharacterTemplate.Luck)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(m => m.CharacterTemplate.Title)
+        </dt>
+        <dd>
+            @Html.DisplayFor(m => m.CharacterTemplate.Title)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(m => m.CharacterTemplate.Description)
+        </dt>
+        <dd>
+            @Html.DisplayFor(m => m.CharacterTemplate.Description)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="CharacterTemplate.Id" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+</div>

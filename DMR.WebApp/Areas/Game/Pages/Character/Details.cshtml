@@ -1,0 +1,121 @@
+﻿@page
+@model WebApp.Areas.Game.Pages.Character.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Character</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CharacterTemplate.Title)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CharacterTemplate.Title)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CharacterTemplate.Description)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CharacterTemplate.Description)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => Model.FirstSpecies)
+        </dt>
+        <dd>
+            @String.Join(",", Model.Species)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CharacterTemplate.Skin)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CharacterTemplate.Skin)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CharacterTemplate.Birthdate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CharacterTemplate.Birthdate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CharacterTemplate.Masculinity)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CharacterTemplate.Masculinity)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CharacterTemplate.Femininity)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CharacterTemplate.Femininity)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CharacterTemplate.Fitness)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CharacterTemplate.Fitness)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CharacterTemplate.Fatness)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CharacterTemplate.Fatness)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CharacterTemplate.Agility)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CharacterTemplate.Agility)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CharacterTemplate.Strength)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CharacterTemplate.Strength)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CharacterTemplate.Speed)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CharacterTemplate.Speed)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CharacterTemplate.Vitality)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CharacterTemplate.Vitality)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CharacterTemplate.Intelligence)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CharacterTemplate.Intelligence)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CharacterTemplate.Willpower)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CharacterTemplate.Willpower)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CharacterTemplate.Esteem)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CharacterTemplate.Esteem)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CharacterTemplate.Luck)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CharacterTemplate.Luck)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.CharacterTemplate.Id">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

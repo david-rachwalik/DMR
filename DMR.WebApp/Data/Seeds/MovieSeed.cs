@@ -9,7 +9,7 @@ namespace DMR.WebApp.Data.Seeds
 {
     public static class MovieSeed
     {
-        public static void Initialize(MainContext context)
+        public static void Initialize(ApplicationContext context)
         {
             // Look for any movies
             if (context.Movies.Any())

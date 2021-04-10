@@ -1,0 +1,193 @@
+﻿@page
+@model DMR.WebApp.Areas.Game.Pages.Templates.Character.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>CharacterTemplate</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CharacterTemplate.ParentMomId)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CharacterTemplate.ParentMomId)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CharacterTemplate.ParentDadId)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CharacterTemplate.ParentDadId)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CharacterTemplate.SoulOwnerId)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CharacterTemplate.SoulOwnerId)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CharacterTemplate.Nickname)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CharacterTemplate.Nickname)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CharacterTemplate.Job)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CharacterTemplate.Job)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CharacterTemplate.UriSmutosaurWiki)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CharacterTemplate.UriSmutosaurWiki)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CharacterTemplate.UriRevampWikia)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CharacterTemplate.UriRevampWikia)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CharacterTemplate.Birthdate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CharacterTemplate.Birthdate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CharacterTemplate.Gender)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CharacterTemplate.Gender)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CharacterTemplate.Temperment)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CharacterTemplate.Temperment)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CharacterTemplate.CampRecruit)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CharacterTemplate.CampRecruit)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CharacterTemplate.Follower)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CharacterTemplate.Follower)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CharacterTemplate.Lover)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CharacterTemplate.Lover)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CharacterTemplate.Slave)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CharacterTemplate.Slave)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CharacterTemplate.HeroicDeeds)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CharacterTemplate.HeroicDeeds)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CharacterTemplate.Skin)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CharacterTemplate.Skin)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CharacterTemplate.Masculinity)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CharacterTemplate.Masculinity)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CharacterTemplate.Femininity)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CharacterTemplate.Femininity)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CharacterTemplate.Fitness)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CharacterTemplate.Fitness)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CharacterTemplate.Fatness)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CharacterTemplate.Fatness)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CharacterTemplate.Dimension)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CharacterTemplate.Dimension)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CharacterTemplate.Release)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CharacterTemplate.Release)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CharacterTemplate.IsLive)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CharacterTemplate.IsLive)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CharacterTemplate.Title)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CharacterTemplate.Title)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CharacterTemplate.Description)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CharacterTemplate.Description)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CharacterTemplate.Who)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CharacterTemplate.Who)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CharacterTemplate.What)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CharacterTemplate.What)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CharacterTemplate.When)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CharacterTemplate.When)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.CharacterTemplate.Stage)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.CharacterTemplate.Stage)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.CharacterTemplate.Id">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

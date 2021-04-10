@@ -13,9 +13,9 @@ namespace DMR.WebApp.Pages.Students
 {
     public class CreateModel : PageModel
     {
-        private readonly MainContext _context;
+        private readonly ApplicationContext _context;
 
-        public CreateModel(MainContext context)
+        public CreateModel(ApplicationContext context)
         {
             _context = context;
         }

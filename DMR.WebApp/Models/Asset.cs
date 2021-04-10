@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+using DMR.WebApp.Services;
 
 namespace DMR.WebApp.Models
 {
-    public abstract class Asset
+    public abstract class Asset : IAuditService
     {
         public int Id { get; set; }
         [Required]
@@ -15,7 +16,7 @@ namespace DMR.WebApp.Models
         public string Title { get; set; }
         public string Description { get; set; }
         [Display(Name = "Token")]
-        public int Who { get; set; }
+        public Guid Who { get; set; }
         public char What { get; set; }
         public DateTime When { get; set; }
         public Stage Stage { get; set; }

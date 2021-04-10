@@ -1,0 +1,113 @@
+﻿@page "{id:int?}"
+@model WebApp.Areas.Game.Pages.Location.IndexModel
+
+@{
+    ViewData["Title"] = (Model.IsSpecific) ? Model.Selection.Title : "Locations";
+}
+
+
+<h2>@ViewData["Title"]</h2>
+
+<div id="coc_location_group" class="panel-group">
+    @if (Model.IsSpecific)
+    {
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <h4>@Html.DisplayFor(model => model.Selection.Description)</h4>
+            </div>
+            <div class="panel-footer">
+                @if (Model.Selection.UriSmutosaurWiki != null && Model.Selection.UriSmutosaurWiki != string.Empty)
+                {
+                    <a href="@Html.DisplayFor(m => m.Selection.UriSmutosaurWiki)" target="_blank">
+                        <span class="label label-info">@Html.DisplayNameFor(m => m.Selection.UriSmutosaurWiki)</span>
+                    </a>
+                }
+                @if (Model.Selection.UriRevampWikia != null && Model.Selection.UriRevampWikia != string.Empty)
+                {
+                    <a href="@Html.DisplayFor(m => m.Selection.UriRevampWikia)" target="_blank">
+                        <span class="label label-info">@Html.DisplayNameFor(m => m.Selection.UriRevampWikia)</span>
+                    </a>
+                }
+            </div>
+        </div>
+    }
+    else
+    {
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <p>
+                    Throughout your adventures, you will discover various locations and dungeons.
+                    While most can be found by exploring, some locations have additional requirements.
+                </p><br />
+
+                <a href="https://wiki.smutosaur.us/CoC/Locations" target="_blank">Smutosaur Wiki - Tree Map</a><br />
+                <a href="http://coc-revamp.wikia.com/wiki/Locations" target="_blank">Revamp Wikia</a>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Zones</h3>
+                <a asp-area="Game" asp-page="/Location/Create"><span class="glyphicon glyphicon-plus"></span></a>
+            </div>
+            <div class="panel-body">
+                <p>
+                    Zones (or <a href="https://wiki.smutosaur.us/CoC/Areas" target="_blank">Areas</a>) are
+                    locations the player can explore.  While exploring a zone, the player may discover other
+                    locations, NPCs, and key items.  However, there may be other random encounters lying in wait.
+                </p>
+                <hr />
+                <ul>
+                    @foreach (var tag in Model.Zones)
+                    {
+                        <li>
+                            <a asp-area="Game" asp-page="/Location/Index" asp-route-id="@tag.Id"><strong>@Html.DisplayFor(m => @tag.Title)</strong></a>:
+                            @Html.DisplayFor(m => @tag.Description)
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Places</h3>
+                <a asp-area="Game" asp-page="/Location/Create"><span class="glyphicon glyphicon-plus"></span></a>
+            </div>
+            <div class="panel-body">
+                <p>
+                    Places (or <a href="https://wiki.smutosaur.us/CoC/Specific_locations" target="_blank">Specific locations</a>)
+                    are accessible from the "Places" menu in game.  These typically include cities, dungeons, and individual buildings.
+                </p>
+                <hr />
+                <ul>
+                    @foreach (var tag in Model.Places)
+                    {
+                        <li>
+                            <a asp-area="Game" asp-page="/Location/Index" asp-route-id="@tag.Id"><strong>@Html.DisplayFor(m => @tag.Title)</strong></a>:
+                            @Html.DisplayFor(m => @tag.Description)
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Dungeons</h3>
+                <a asp-area="Game" asp-page="/Location/Create"><span class="glyphicon glyphicon-plus"></span></a>
+            </div>
+            <div class="panel-body">
+                <ul>
+                    @foreach (var tag in Model.Dungeons)
+                    {
+                        <li>
+                            <a asp-area="Game" asp-page="/Location/Index" asp-route-id="@tag.Id"><strong>@Html.DisplayFor(m => @tag.Title)</strong></a>:
+                            @Html.DisplayFor(m => @tag.Description)
+                        </li>
+                    }
+                </ul>
+            </div>
+        </div>
+    }
+</div>

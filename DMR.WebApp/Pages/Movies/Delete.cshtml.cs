@@ -12,9 +12,9 @@ namespace DMR.WebApp.Pages.Movies
 {
     public class DeleteModel : PageModel
     {
-        private readonly DMR.WebApp.Data.MainContext _context;
+        private readonly DMR.WebApp.Data.ApplicationContext _context;
 
-        public DeleteModel(DMR.WebApp.Data.MainContext context)
+        public DeleteModel(DMR.WebApp.Data.ApplicationContext context)
         {
             _context = context;
         }

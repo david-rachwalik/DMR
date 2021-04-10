@@ -11,9 +11,9 @@ namespace DMR.WebApp.Pages.Departments
 {
     public class EditModel : PageModel
     {
-        private readonly DMR.WebApp.Data.MainContext _context;
+        private readonly DMR.WebApp.Data.ApplicationContext _context;
 
-        public EditModel(DMR.WebApp.Data.MainContext context)
+        public EditModel(DMR.WebApp.Data.ApplicationContext context)
         {
             _context = context;
         }
@@ -112,7 +112,7 @@ namespace DMR.WebApp.Pages.Departments
         }
 
         private async Task setDbErrorMessage(Department dbValues,
-                Department clientValues, MainContext context)
+                Department clientValues, ApplicationContext context)
         {
 
             if (dbValues.Name != clientValues.Name)

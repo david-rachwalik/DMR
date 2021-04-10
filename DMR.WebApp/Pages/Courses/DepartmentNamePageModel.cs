@@ -10,7 +10,7 @@ namespace DMR.WebApp.Pages.Courses
     {
         public SelectList DepartmentNameSL { get; set; }
 
-        public void PopulateDepartmentsDropDownList(MainContext _context,
+        public void PopulateDepartmentsDropDownList(ApplicationContext _context,
             object selectedDepartment = null)
         {
             var departmentsQuery = from d in _context.Departments

@@ -1,0 +1,32 @@
+﻿@{
+    ViewData["Brand"] = "DMR";
+    ViewData["NavbarId"] = string.Empty;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - @ViewData["Brand"]</title>
+
+    <partial name="_MainStylesPartial" />
+</head>
+<body id="sexbound">
+    <partial name="_NavbarAreaPartial" />
+
+    <partial name="_CookieConsentPartial" />
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; 2018 - .NET Core - BootleySqueeDoodle</p>
+        </footer>
+    </div>
+
+    <partial name="_MainScriptsPartial" />
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

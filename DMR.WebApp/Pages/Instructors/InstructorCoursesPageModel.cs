@@ -12,7 +12,7 @@ namespace DMR.WebApp.Pages.Instructors
 
         public List<AssignedCourseData> AssignedCourseDataList;
 
-        public void PopulateAssignedCourseData(MainContext context,
+        public void PopulateAssignedCourseData(ApplicationContext context,
                                                Instructor instructor)
         {
             var allCourses = context.Courses;
@@ -30,7 +30,7 @@ namespace DMR.WebApp.Pages.Instructors
             }
         }
 
-        public void UpdateInstructorCourses(MainContext context,
+        public void UpdateInstructorCourses(ApplicationContext context,
             string[] selectedCourses, Instructor instructorToUpdate)
         {
             if (selectedCourses == null)
