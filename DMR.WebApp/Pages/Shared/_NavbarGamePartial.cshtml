@@ -1,0 +1,27 @@
+@{
+    string navGame = "btnGameDropdown";
+}
+
+<ul class="nav navbar-nav navbar">
+    <li class="dropdown">
+        <a id="@navGame" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Fantasy RPGs
+            <b class="caret"></b>
+        </a>
+        <ul class="dropdown-menu" aria-labelledby="@navGame">
+            <li class="dropdown-header">Game Info</li>
+            <li><a href="/redoc" class="dropdown-item">OpenAPI</a></li>
+            <li role="separator" class="divider"></li>
+            <li><a asp-area="Game" asp-page="/Effect/Index" class="dropdown-item">Effects</a></li>
+            <li><a asp-area="Game" asp-page="/Item/Index" class="dropdown-item">Items</a></li>
+            <li><a asp-area="Game" asp-page="/Location/Index" class="dropdown-item">Locations</a></li>
+            <li role="separator" class="divider"></li>
+
+            <li class="dropdown-header">Game Character Info</li>
+            <li><a asp-area="Game" asp-page="/Attribute/Index" class="dropdown-item">Attributes</a></li>
+            <li><a asp-area="Game" asp-page="/Character/Index" class="dropdown-item">Characters</a></li>
+            <li class="disabled"><a asp-area="Game" asp-page="/Skill/Index" class="dropdown-item">Skills</a></li>
+            <li class="disabled"><a asp-area="Game" asp-page="/Species/Index" class="dropdown-item">Species</a></li>
+        </ul>
+    </li>
+</ul>
