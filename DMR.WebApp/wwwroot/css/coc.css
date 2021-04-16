@@ -1,0 +1,87 @@
+﻿/* --- Corruption of Champions theme --- */
+.coc_bg {
+    background-color: #ffffcc;
+    background-image: url("/img/coc_background.jpg");
+    background-size: cover;
+}
+
+#coc_stage, #coc_stage_background, #coc_stage_text {
+    height: 565px;
+}
+
+#coc_stage {
+    position: relative;
+    border: 1px solid black;
+    padding: 0;
+}
+
+#coc_stage_text {
+    position: absolute;
+    margin: 10px 15px;
+    top: 0;
+    left: 0;
+}
+
+#coc_stage_background {
+    background: rgba(255, 255, 255, 0.25);
+}
+
+.dimmed {
+    position: relative;
+}
+
+.dimmed:after {
+    content: " ";
+    z-index: 10;
+    display: block;
+    position: absolute;
+    height: 100%;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(255, 255, 255, 0.25);
+}
+
+#coc_title_group {
+    margin: 0 auto;
+    margin-top: 100px;
+    text-align: right;
+    width: 420px;
+}
+
+.coc_btn_group button {
+    width: 130px;
+}
+
+.coc_indent {
+    margin-left: 20px;
+}
+
+#coc_location_group .panel-heading,
+#coc_effect_group .panel-heading {
+    position: relative;
+}
+
+#coc_location_group .panel-heading > a,
+#coc_effect_group .panel-heading > a {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+}
+
+button.coc_btn {
+    width: 120px;
+}
+
+button.coc_btn_hide {
+    visibility: hidden;
+    width: 120px;
+}
+
+.coc_b {
+    font-weight: bold;
+}
+
+.coc_u {
+    text-decoration: underline;
+}

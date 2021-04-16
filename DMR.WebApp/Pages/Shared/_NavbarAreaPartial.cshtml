@@ -1,30 +1,48 @@
 <header>
     <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
         <div class="container">
-            <a class="navbar-brand" asp-area="" asp-page="/Index">DMR</a>
+            <a class="navbar-brand" asp-area="" asp-page="/Index">David Rachwalik</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                     aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
             <div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
                 @*<partial name="_NavbarGamePartial" />
-                <ul class="nav navbar-nav">
-                    <li><a asp-area="Blog" asp-page="/Index">Blog</a></li>
-                    <li><a asp-area="Forum" asp-page="/Index">Forum</a></li>
-                    <li><a asp-page="/About">About</a></li>
-                </ul>*@
+                    <ul class="nav navbar-nav">
+                        <li><a asp-area="Blog" asp-page="/Index">Blog</a></li>
+                        <li><a asp-area="Forum" asp-page="/Index">Forum</a></li>
+                        <li><a asp-page="/About">About</a></li>
+                    </ul>*@
                 <ul class="navbar-nav flex-grow-1">
-                    <li class="nav-item"><a class="nav-link text-dark" asp-area="" asp-page="/Movies/Index">Movies</a></li>
+                    @*<li class="nav-item"><a class="nav-link text-dark" asp-area="" asp-page="/Movies/Index">Movies</a></li>
 
-                    <li class="nav-item"><a class="nav-link text-dark" asp-area="" asp-page="/Students/Index">Students</a></li>
-                    <li class="nav-item"><a class="nav-link text-dark" asp-area="" asp-page="/Courses/Index">Courses</a></li>
-                    <li class="nav-item"><a class="nav-link text-dark" asp-area="" asp-page="/Instructors/Index">Instructors</a></li>
-                    <li class="nav-item"><a class="nav-link text-dark" asp-area="" asp-page="/Departments/Index">Departments</a></li>
+                        <li class="nav-item"><a class="nav-link text-dark" asp-area="" asp-page="/Students/Index">Students</a></li>
+                        <li class="nav-item"><a class="nav-link text-dark" asp-area="" asp-page="/Courses/Index">Courses</a></li>
+                        <li class="nav-item"><a class="nav-link text-dark" asp-area="" asp-page="/Instructors/Index">Instructors</a></li>
+                        <li class="nav-item"><a class="nav-link text-dark" asp-area="" asp-page="/Departments/Index">Departments</a></li>*@
 
-                    <li class="nav-item"><a class="nav-link text-dark" asp-area="Blog" asp-page="/Index">Blog</a></li>
                     <li class="nav-item"><a class="nav-link text-dark" asp-area="" asp-page="/Portfolio/Index">Portfolio</a></li>
-                    <li class="nav-item"><a class="nav-link text-dark" asp-area="" asp-page="/StudentStats">Stats</a></li>
+                    <li class="nav-item"><a class="nav-link text-dark" asp-area="Blog" asp-page="/Index">Blog</a></li>
                     <li class="nav-item"><a class="nav-link text-dark" asp-area="" asp-page="/About">About</a></li>
+                </ul>
+            </div>
+
+            <div class="navbar-collapse collapse" id="navbarMainContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" id="navbarDropdownTemplates" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Templates
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownTemplates">
+                            <li><a class="dropdown-item" asp-area="" asp-page="/Movies/Index">Movies</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" asp-area="" asp-page="/Students/Index">Students</a></li>
+                            <li><a class="dropdown-item" asp-area="" asp-page="/Courses/Index">Courses</a></li>
+                            <li><a class="dropdown-item" asp-area="" asp-page="/Instructors/Index">Instructors</a></li>
+                            <li><a class="dropdown-item" asp-area="" asp-page="/Departments/Index">Departments</a></li>
+                            <li><a class="dropdown-item" asp-area="" asp-page="/StudentStats">Stats</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
         </div>

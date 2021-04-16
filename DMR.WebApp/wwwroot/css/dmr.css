@@ -1,0 +1,17 @@
+﻿/* --- David Rachwalik theme --- */
+
+#dr_navmenu_main,
+#dr_navmenu_main:hover,
+#dr_navmenu_main:focus {
+    background-image: linear-gradient(#0A9F7A, #008060);
+}
+
+#dr_navmenu_main.navbar-inverse .navbar-brand,
+#dr_navmenu_main.navbar-inverse .navbar-nav > li > a {
+    color: #004D3A;
+}
+
+#dr_navmenu_main.navbar-inverse .navbar-brand:hover,
+#dr_navmenu_main.navbar-inverse .navbar-nav > li > a:hover {
+    color: black;
+}

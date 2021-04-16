@@ -2,7 +2,7 @@
     string navGame = "btnGameDropdown";
 }
 
-<ul class="nav navbar-nav navbar">
+@*<ul class="nav navbar-nav navbar">
     <li class="dropdown">
         <a id="@navGame" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Fantasy RPGs
@@ -23,5 +23,32 @@
             <li class="disabled"><a asp-area="Game" asp-page="/Skill/Index" class="dropdown-item">Skills</a></li>
             <li class="disabled"><a asp-area="Game" asp-page="/Species/Index" class="dropdown-item">Species</a></li>
         </ul>
+    </li>
+</ul>*@
+
+<ul class="nav nav-pills">
+    <li class="nav-item">
+        <a class="nav-link">Play EroRPG</a>
+    </li>
+    <li class="nav-item dropdown">
+        <a id="@navGame" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+            Game Info
+            <b class="caret"></b>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="@navGame">
+            <a class="dropdown-header">Game Info</a>
+            <a class="dropdown-item" asp-area="Game" asp-page="/Effect/Index">Effects</a>
+            <a class="dropdown-item" asp-area="Game" asp-page="/Item/Index">Items</a>
+            <a class="dropdown-item" asp-area="Game" asp-page="/Location/Index">Locations</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-header">Game Character Info</a>
+            <a class="dropdown-item" asp-area="Game" asp-page="/Attribute/Index">Attributes</a>
+            <a class="dropdown-item" asp-area="Game" asp-page="/Character/Index">Characters</a>
+            <a class="dropdown-item disabled" asp-area="Game" asp-page="/Skill/Index">Skills</a>
+            <a class="dropdown-item disabled" asp-area="Game" asp-page="/Species/Index">Species</a>
+        </div>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" href="/redoc">OpenAPI</a>
     </li>
 </ul>
