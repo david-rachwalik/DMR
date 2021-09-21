@@ -12,7 +12,7 @@ pool:
   vmImage: 'ubuntu-latest'
 
 variables:
-  dotnetVersion: '3.1.x'
+  dotnetVersion: '5.0.x'
   solution: '**/*.sln'
   buildPlatform: 'AnyCPU'
   buildConfiguration: 'Release'
