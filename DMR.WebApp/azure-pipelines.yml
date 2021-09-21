@@ -17,9 +17,9 @@ variables:
   buildConfiguration: 'Release'
 
 stages:
-- stage: Build
+- stage: Build the app
   jobs:
-  - job: Build_the_app
+  - job: Build
     steps:
     - task: UseDotNet@2
       displayName: 'Install .NET Core SDK'
@@ -41,7 +41,9 @@ stages:
         command: 'build'
         arguments: '--configuration $(buildConfiguration)'
         
-  - job: Run_tests
+- stage: Run tests
+  jobs:
+  - job: Test
     steps:
     - task: DotNetCoreCLI@2
       displayName: 'dotnet test $(buildConfiguration)'
@@ -50,7 +52,9 @@ stages:
         projects: '**/*Tests/*.csproj'
         arguments: '--configuration $(buildConfiguration)'
         
-  - job: Deploy_to_pre-production
+- stage: Deploy_to_pre-production
+  jobs:
+  - job: Deploy
     steps:
     - task: DotNetCoreCLI@2
       displayName: 'Stage build output'
