@@ -17,7 +17,7 @@ variables:
   buildConfiguration: 'Release'
 
 stages:
-- stage: Build the app
+- stage: Build_the_app
   jobs:
   - job: Build
     steps:
@@ -41,7 +41,7 @@ stages:
         command: 'build'
         arguments: '--configuration $(buildConfiguration)'
         
-- stage: Run tests
+- stage: Run_tests
   jobs:
   - job: Test
     steps:
@@ -52,7 +52,7 @@ stages:
         projects: '**/*Tests/*.csproj'
         arguments: '--configuration $(buildConfiguration)'
         
-- stage: Deploy_to_pre-production
+- stage: Deploy_to_pre_production
   jobs:
   - job: Deploy
     steps:
