@@ -2,14 +2,16 @@
 # Build and test ASP.NET projects.
 # Add steps that publish symbols, save build artifacts, deploy, and more:
 # https://docs.microsoft.com/azure/devops/pipelines/apps/aspnet/build-aspnet-4
+# https://docs.microsoft.com/en-us/azure/devops/pipelines/ecosystems/dotnet-core
 
 trigger:
 - master
 
 pool:
-  vmImage: 'windows-latest'
+  vmImage: 'ubuntu-latest'
 
 variables:
+  dotnetVersion: '5.0.x'
   solution: '**/*.sln'
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
@@ -17,34 +19,49 @@ variables:
 stages:
 - stage: Build
   jobs:
-  - job: Build
+  - job: Build the app
     steps:
+    - task: UseDotNet@2
+      displayName: 'Install .NET Core SDK'
+      inputs:
+        version: '$(dotnetVersion)'
+        packageType: runtime
+
     - task: NuGetToolInstaller@1
+      displayName: 'Install NuGet'
 
     - task: NuGetCommand@2
+      displayName: 'Restore NuGet package dependencies'
       inputs:
         restoreSolution: '$(solution)'
 
-    - task: VSBuild@1
+    - task: DotNetCoreCLI@2
+      displayName: 'dotnet build $(buildConfiguration)'
       inputs:
-        solution: '$(solution)'
-        msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation="$(build.artifactStagingDirectory)"'
-        platform: '$(buildPlatform)'
-        configuration: '$(buildConfiguration)'
-
-    - task: VSTest@2
+        command: 'build'
+        arguments: '--configuration $(buildConfiguration)'
+        
+  - job: Run tests
+    steps:
+    - task: DotNetCoreCLI@2
+      displayName: 'dotnet test $(buildConfiguration)'
       inputs:
-        platform: '$(buildPlatform)'
-        configuration: '$(buildConfiguration)'
-
-    - task: CopyFiles@2
+        command: test
+        projects: '**/*Tests/*.csproj'
+        arguments: '--configuration $(buildConfiguration)'
+        
+  - job: Deploy to pre-production
+    steps:
+    - task: DotNetCoreCLI@2
       displayName: 'Stage build output'
       inputs:
-        sourceFolder: $(Agent.BuildDirectory)
-        targetFolder: $(Build.ArtifactStagingDirectory)
+        command: publish
+        publishWebProjects: True
+        arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
+        zipAfterPublish: True
 
     - task: PublishBuildArtifacts@1
       displayName: 'Publish build artifacts'
       inputs:
-        pathToPublish: $(Build.ArtifactStagingDirectory)
+        pathtoPublish: '$(Build.ArtifactStagingDirectory)' 
         artifactName: 'drop'
