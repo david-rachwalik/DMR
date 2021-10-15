@@ -6,4 +6,6 @@
 $(document).ready(function () {
     $navTabs = $('ul.nav-tabs');
     $navTabs.children("li").first().children("a").click();
+    // Enable Bootstrap tooltips everywhere // https://getbootstrap.com/docs/4.6/components/tooltips
+    $('[data-toggle="tooltip"]').tooltip();
 });

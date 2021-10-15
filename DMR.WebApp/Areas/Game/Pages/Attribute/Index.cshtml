@@ -45,21 +45,11 @@
                     <table class="table">
                         <thead>
                             <tr>
-                                <th>
-                                    @Html.DisplayNameFor(m => m.FirstAttribute.Id)
-                                </th>
-                                <th>
-                                    @Html.DisplayNameFor(m => m.FirstAttribute.Dimension)
-                                </th>
-                                <th>
-                                    @Html.DisplayNameFor(m => m.FirstAttribute.Release)
-                                </th>
-                                <th>
-                                    @Html.DisplayNameFor(m => m.FirstAttribute.Title)
-                                </th>
-                                <th>
-                                    @Html.DisplayNameFor(m => m.FirstAttribute.Description)
-                                </th>
+                                <th>@Html.DisplayNameFor(m => m.FirstAttribute.Dimension)</th>
+                                <th>@Html.DisplayNameFor(m => m.FirstAttribute.Id)</th>
+                                <th>@Html.DisplayNameFor(m => m.FirstAttribute.Release)</th>
+                                <th>@Html.DisplayNameFor(m => m.FirstAttribute.Title)</th>
+                                <th>@Html.DisplayNameFor(m => m.FirstAttribute.Description)</th>
                                 @*<th></th>*@
                             </tr>
                         </thead>
@@ -67,28 +57,19 @@
                             @foreach (var item in Model.Attributes.Where(s => s.Style == attributeStyle).ToList())
                             {
                                 <tr>
-                                    <td>
-                                        @Html.DisplayFor(m => item.Id)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(m => item.Dimension)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(m => item.Release)
-                                    </td>
-                                    <td>
-                                        <a asp-page="./Edit" asp-route-id="@item.Id" title="@Html.DisplayFor(m => item.Abbreviation)">
+                                    <td>@Html.DisplayFor(m => item.Id)</td>
+                                    <td>@Html.DisplayFor(m => item.Dimension)</td>
+                                    <td>@Html.DisplayFor(m => item.Release)</td>
+                                    <td><a asp-page="./Edit" asp-route-id="@item.Id" title="@Html.DisplayFor(m => item.Abbreviation)">
                                             @Html.DisplayFor(m => item.Title)
                                         </a>
                                     </td>
-                                    <td>
-                                        @Html.DisplayFor(m => item.Description)
-                                    </td>
+                                    <td>@Html.DisplayFor(m => item.Description)</td>
                                     @*<td>
-                                        <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                                        <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                                        <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
-                                    </td>*@
+                                            <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                                            <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                                            <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                                        </td>*@
                                 </tr>
                             }
                         </tbody>

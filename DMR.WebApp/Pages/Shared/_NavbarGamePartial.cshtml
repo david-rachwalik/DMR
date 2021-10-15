@@ -36,16 +36,22 @@
             <b class="caret"></b>
         </a>
         <div class="dropdown-menu" aria-labelledby="@navGame">
+            <a class="dropdown-header">Game Server</a>
+            <a class="dropdown-item" asp-area="CoC" asp-page="/Index">Corruption of Champions</a>
+            <div class="dropdown-divider"></div>
+
             <a class="dropdown-header">Game Info</a>
             <a class="dropdown-item" asp-area="Game" asp-page="/Effect/Index">Effects</a>
             <a class="dropdown-item" asp-area="Game" asp-page="/Item/Index">Items</a>
             <a class="dropdown-item" asp-area="Game" asp-page="/Location/Index">Locations</a>
             <div class="dropdown-divider"></div>
+
             <a class="dropdown-header">Game Character Info</a>
             <a class="dropdown-item" asp-area="Game" asp-page="/Attribute/Index">Attributes</a>
             <a class="dropdown-item" asp-area="Game" asp-page="/Character/Index">Characters</a>
-            <a class="dropdown-item disabled" asp-area="Game" asp-page="/Skill/Index">Skills</a>
-            <a class="dropdown-item disabled" asp-area="Game" asp-page="/Species/Index">Species</a>
+            <a class="dropdown-item" asp-area="Game" asp-page="/Skill/Index">Skills</a>
+            <a class="dropdown-item" asp-area="Game" asp-page="/Species/Index">Species</a>
+            <a class="dropdown-item disabled" asp-area="Game" asp-page="/Tags/Index">Tags</a>
         </div>
     </li>
     <li class="nav-item">

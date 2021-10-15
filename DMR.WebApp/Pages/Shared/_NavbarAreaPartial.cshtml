@@ -1,3 +1,8 @@
+@{
+    string navTemplate = "navbarDropdownTemplates";
+    string navTheme = "navbarDropdownThemes";
+}
+
 <header>
     <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
         <div class="container">
@@ -24,27 +29,55 @@
                     <li class="nav-item"><a class="nav-link text-dark" asp-area="" asp-page="/Portfolio/Index">Portfolio</a></li>
                     <li class="nav-item"><a class="nav-link text-dark" asp-area="Blog" asp-page="/Index">Blog</a></li>
                     <li class="nav-item"><a class="nav-link text-dark" asp-area="" asp-page="/About">About</a></li>
-                </ul>
-            </div>
 
-            <div class="navbar-collapse collapse" id="navbarMainContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" id="navbarDropdownTemplates" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a id="@navTemplate" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                             Templates
                         </a>
-                        <ul class="dropdown-menu" aria-labelledby="navbarDropdownTemplates">
-                            <li><a class="dropdown-item" asp-area="" asp-page="/Movies/Index">Movies</a></li>
-                            <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" asp-area="" asp-page="/Students/Index">Students</a></li>
-                            <li><a class="dropdown-item" asp-area="" asp-page="/Courses/Index">Courses</a></li>
-                            <li><a class="dropdown-item" asp-area="" asp-page="/Instructors/Index">Instructors</a></li>
-                            <li><a class="dropdown-item" asp-area="" asp-page="/Departments/Index">Departments</a></li>
-                            <li><a class="dropdown-item" asp-area="" asp-page="/StudentStats">Stats</a></li>
-                        </ul>
+                        <div class="dropdown-menu" aria-labelledby="@navTemplate">
+                            <a class="dropdown-item" asp-area="" asp-page="/Movies/Index">Movies</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" asp-area="" asp-page="/Students/Index">Students</a>
+                            <a class="dropdown-item" asp-area="" asp-page="/Courses/Index">Courses</a>
+                            <a class="dropdown-item" asp-area="" asp-page="/Instructors/Index">Instructors</a>
+                            <a class="dropdown-item" asp-area="" asp-page="/Departments/Index">Departments</a>
+                            <a class="dropdown-item" asp-area="" asp-page="/StudentStats">Stats</a>
+                        </div>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a id="@navTheme" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            Themes
+                        </a>
+                        @* TODO: Will eventually move /Pages/Themes/* into Info area *@
+                        <div class="dropdown-menu" aria-labelledby="@navTheme">
+                            <a class="dropdown-item" asp-area="" asp-page="/Themes/Index">Main</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" asp-area="" asp-page="/Themes/CoC">CoC</a>
+                            <a class="dropdown-item" asp-area="" asp-page="/Themes/EroRPG">EroRPG</a>
+                        </div>
                     </li>
                 </ul>
             </div>
+
+            @*<div class="navbar-collapse collapse" id="navbarMainContent">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" id="navbarDropdownTemplates" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                Templates
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownTemplates">
+                                <li><a class="dropdown-item" asp-area="" asp-page="/Movies/Index">Movies</a></li>
+                                <li><hr class="dropdown-divider"></li>
+                                <li><a class="dropdown-item" asp-area="" asp-page="/Students/Index">Students</a></li>
+                                <li><a class="dropdown-item" asp-area="" asp-page="/Courses/Index">Courses</a></li>
+                                <li><a class="dropdown-item" asp-area="" asp-page="/Instructors/Index">Instructors</a></li>
+                                <li><a class="dropdown-item" asp-area="" asp-page="/Departments/Index">Departments</a></li>
+                                <li><a class="dropdown-item" asp-area="" asp-page="/StudentStats">Stats</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>*@
         </div>
     </nav>
 </header>
