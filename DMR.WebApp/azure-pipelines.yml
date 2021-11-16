@@ -1,67 +1,108 @@
-# ASP.NET
-# Build and test ASP.NET projects.
-# Add steps that publish symbols, save build artifacts, deploy, and more:
+# Azure Pipeline for ASP.NET project -- build, test, publish, provision, & deploy
 # https://docs.microsoft.com/azure/devops/pipelines/apps/aspnet/build-aspnet-4
 # https://docs.microsoft.com/en-us/azure/devops/pipelines/ecosystems/dotnet-core
 
 trigger:
-- master
-
-pool:
-  vmImage: 'ubuntu-latest'
+  branches:
+    include:
+    - master
+    - releases/*
+  # https://docs.microsoft.com/en-us/azure/devops/pipelines/repos/github#paths
+  paths:
+    include:
+    - DMR.WebApp
 
 variables:
-  dotnetVersion: '5.0.x'
-  solution: '**/*.sln'
-  buildPlatform: 'Any CPU'
-  buildConfiguration: 'Release'
+  tag: '$(Build.BuildId)'
+  dotnetRuntimeVersion: "5.0.x"
+  dotnetFramework: "net5.0"
 
 stages:
 - stage: Build
+  pool:
+    vmImage: "ubuntu-latest"
+  variables:
+    solution: "**/*.sln"
+    buildPlatform: "AnyCPU"
+    buildConfiguration: "Release"
   jobs:
-  - job: Compile
+  # ------------------------ Environment Setup Steps ------------------------
+  # Each job receives its own machine; installed tools must persist across all jobs/steps
+  - job: Build
     steps:
+    # ------------------------ Provision Steps ------------------------
+    # https://docs.microsoft.com/en-us/azure/devops/pipelines/tasks/tool/dotnet-core-tool-installer
     - task: UseDotNet@2
-      displayName: 'Install .NET Core SDK'
+      displayName: "Install .NET SDK"
       inputs:
-        version: '$(dotnetVersion)'
-        packageType: runtime
-
+        version: "$(dotnetRuntimeVersion)"
+    
+    # https://docs.microsoft.com/en-us/azure/devops/pipelines/tasks/tool/nuget
     - task: NuGetToolInstaller@1
-      displayName: 'Install NuGet'
+      displayName: "Install NuGet"
 
+    # https://docs.microsoft.com/en-us/azure/devops/pipelines/tasks/package/nuget
     - task: NuGetCommand@2
-      displayName: 'Restore NuGet package dependencies'
+      displayName: "Restore NuGet package dependencies"
       inputs:
-        restoreSolution: '$(solution)'
+        restoreSolution: "$(solution)"
 
-    - task: DotNetCoreCLI@2
-      displayName: 'dotnet build $(buildConfiguration)'
-      inputs:
-        command: 'build'
-        arguments: '--configuration $(buildConfiguration)'
         
-  - job: Test
-    steps:
+    # ------------------------ Build/Compile Steps ------------------------
+    # https://docs.microsoft.com/en-us/azure/devops/pipelines/tasks/build/dotnet-core-cli
     - task: DotNetCoreCLI@2
-      displayName: 'dotnet test $(buildConfiguration)'
+      displayName: "Build .NET: $(buildConfiguration)"
+      inputs:
+        command: build
+        arguments: >-
+          --framework $(dotnetFramework)
+          --configuration $(buildConfiguration)
+          --nologo
+
+
+    # ------------------------ Test Steps ------------------------
+    - task: DotNetCoreCLI@2
+      displayName: "Test .NET: $(buildConfiguration)"
       inputs:
         command: test
-        projects: '**/*Tests/*.csproj'
-        arguments: '--configuration $(buildConfiguration)'
+        projects: "**/*Tests/*.csproj"
+        arguments: >-
+          --framework $(dotnetFramework)
+          --configuration $(buildConfiguration)
+          --nologo
+
         
-  - job: Package
-    steps:
+    # ------------------------ Artifact Staging Steps ------------------------
+    # Provides zip file for deployment to app service
+    # Can't output to specific filename but still few steps than ArchiveFiles@2 + CopyFiles@2
     - task: DotNetCoreCLI@2
-      displayName: 'Stage build output'
+      displayName: "Stage build output"
       inputs:
         command: publish
         publishWebProjects: True
-        arguments: '--configuration $(BuildConfiguration) --output $(Build.ArtifactStagingDirectory)'
+        # https://docs.microsoft.com/en-us/dotnet/core/tools/dotnet-publish#options
+        arguments: >-
+          --framework $(dotnetFramework)
+          --configuration $(buildConfiguration)
+          --output $(Build.ArtifactStagingDirectory)
+          --nologo
         zipAfterPublish: True
 
-    - task: PublishBuildArtifacts@1
-      displayName: 'Publish build artifacts'
+    # Provides ARM (Azure Resource Manager) files
+    # https://docs.microsoft.com/en-us/azure/devops/pipelines/tasks/utility/copy-files
+    - task: CopyFiles@2
+      displayName: "Stage ARM files"
       inputs:
-        pathtoPublish: '$(Build.ArtifactStagingDirectory)' 
-        artifactName: 'drop'
+        contents: "**/bin/**/ArmTemplates/**/azuredeploy*.json"
+        targetFolder: "$(Build.ArtifactStagingDirectory)"
+        flattenFolders: True
+
+      
+    # ------------------------ Artifact Publish Steps ------------------------
+    # https://docs.microsoft.com/en-us/azure/devops/pipelines/tasks/utility/publish-build-artifacts
+    - task: PublishBuildArtifacts@1
+      displayName: "Publish build artifact: drop"
+      inputs:
+        pathtoPublish: "$(Build.ArtifactStagingDirectory)" 
+        artifactName: "drop"
+        
