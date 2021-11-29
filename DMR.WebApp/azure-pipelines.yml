@@ -14,8 +14,8 @@ trigger:
 
 variables:
   tag: '$(Build.BuildId)'
-  dotnetRuntimeVersion: "5.0.x"
-  dotnetFramework: "net5.0"
+  dotnetRuntimeVersion: "6.0.x"
+  dotnetFramework: "net6.0"
 
 stages:
 - stage: Build
