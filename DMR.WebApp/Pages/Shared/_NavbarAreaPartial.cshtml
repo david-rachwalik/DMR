@@ -1,6 +1,6 @@
 @{
-    string navTemplate = "navbarDropdownTemplates";
     string navTheme = "navbarDropdownThemes";
+    string navGame = "btnGameDropdown";
 }
 
 <header>
@@ -19,29 +19,36 @@
                         <li><a asp-page="/About">About</a></li>
                     </ul>*@
                 <ul class="navbar-nav flex-grow-1">
-                    @*<li class="nav-item"><a class="nav-link text-dark" asp-area="" asp-page="/Movies/Index">Movies</a></li>
-
-                        <li class="nav-item"><a class="nav-link text-dark" asp-area="" asp-page="/Students/Index">Students</a></li>
-                        <li class="nav-item"><a class="nav-link text-dark" asp-area="" asp-page="/Courses/Index">Courses</a></li>
-                        <li class="nav-item"><a class="nav-link text-dark" asp-area="" asp-page="/Instructors/Index">Instructors</a></li>
-                        <li class="nav-item"><a class="nav-link text-dark" asp-area="" asp-page="/Departments/Index">Departments</a></li>*@
-
                     @*<li class="nav-item"><a class="nav-link text-dark" asp-area="" asp-page="/Portfolio/Index">Portfolio</a></li>*@
                     <li class="nav-item"><a class="nav-link text-dark" asp-area="Blog" asp-page="/Index">Blog</a></li>
                     <li class="nav-item"><a class="nav-link text-dark" asp-area="" asp-page="/About">About</a></li>
 
                     <li class="nav-item dropdown">
-                        <a id="@navTemplate" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                            Templates
+                        <a id="@navGame" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            Game Info
+                            <b class="caret"></b>
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="@navTemplate">
-                            <a class="dropdown-item" asp-area="" asp-page="/Movies/Index">Movies</a>
+                        <div class="dropdown-menu" aria-labelledby="@navGame">
+                            <a class="dropdown-item" asp-area="Game" asp-page="/Index">Play EroRPG</a>
+                            <a class="dropdown-item" href="/redoc">OpenAPI</a>
                             <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" asp-area="" asp-page="/Students/Index">Students</a>
-                            <a class="dropdown-item" asp-area="" asp-page="/Courses/Index">Courses</a>
-                            <a class="dropdown-item" asp-area="" asp-page="/Instructors/Index">Instructors</a>
-                            <a class="dropdown-item" asp-area="" asp-page="/Departments/Index">Departments</a>
-                            <a class="dropdown-item" asp-area="" asp-page="/StudentStats">Stats</a>
+
+                            <a class="dropdown-header">Game Server</a>
+                            <a class="dropdown-item" asp-area="CoC" asp-page="/Index">Corruption of Champions</a>
+                            <div class="dropdown-divider"></div>
+
+                            <a class="dropdown-header">Game Info</a>
+                            <a class="dropdown-item" asp-area="Game" asp-page="/Effect/Index">Effects</a>
+                            <a class="dropdown-item" asp-area="Game" asp-page="/Item/Index">Items</a>
+                            <a class="dropdown-item" asp-area="Game" asp-page="/Location/Index">Locations</a>
+                            <div class="dropdown-divider"></div>
+
+                            <a class="dropdown-header">Game Character Info</a>
+                            <a class="dropdown-item" asp-area="Game" asp-page="/Attribute/Index">Attributes</a>
+                            <a class="dropdown-item" asp-area="Game" asp-page="/Character/Index">Characters</a>
+                            <a class="dropdown-item" asp-area="Game" asp-page="/Skill/Index">Skills</a>
+                            <a class="dropdown-item" asp-area="Game" asp-page="/Species/Index">Species</a>
+                            <a class="dropdown-item disabled" asp-area="Game" asp-page="/Tags/Index">Tags</a>
                         </div>
                     </li>
 
@@ -59,25 +66,6 @@
                     </li>
                 </ul>
             </div>
-
-            @*<div class="navbar-collapse collapse" id="navbarMainContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" id="navbarDropdownTemplates" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Templates
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownTemplates">
-                                <li><a class="dropdown-item" asp-area="" asp-page="/Movies/Index">Movies</a></li>
-                                <li><hr class="dropdown-divider"></li>
-                                <li><a class="dropdown-item" asp-area="" asp-page="/Students/Index">Students</a></li>
-                                <li><a class="dropdown-item" asp-area="" asp-page="/Courses/Index">Courses</a></li>
-                                <li><a class="dropdown-item" asp-area="" asp-page="/Instructors/Index">Instructors</a></li>
-                                <li><a class="dropdown-item" asp-area="" asp-page="/Departments/Index">Departments</a></li>
-                                <li><a class="dropdown-item" asp-area="" asp-page="/StudentStats">Stats</a></li>
-                            </ul>
-                        </li>
-                    </ul>
-                </div>*@
         </div>
     </nav>
 </header>
