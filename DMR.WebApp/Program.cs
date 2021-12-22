@@ -39,20 +39,20 @@ else
 }
 
 // Seed the database when needed
-using (var scope = app.Services.CreateScope())
-{
-    var services = scope.ServiceProvider;
-    try
-    {
-        var context = services.GetRequiredService<ApplicationContext>();
-        DbInitializer.Initialize(context); // Migrate the database
-    }
-    catch (Exception ex)
-    {
-        var logger = services.GetRequiredService<ILogger<Program>>();
-        logger.LogError(ex, "An error occurred initializing the database.");
-    }
-}
+//using (var scope = app.Services.CreateScope())
+//{
+//    var services = scope.ServiceProvider;
+//    try
+//    {
+//        var context = services.GetRequiredService<ApplicationContext>();
+//        DbInitializer.Initialize(context); // Migrate the database
+//    }
+//    catch (Exception ex)
+//    {
+//        var logger = services.GetRequiredService<ILogger<Program>>();
+//        logger.LogError(ex, "An error occurred initializing the database.");
+//    }
+//}
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();

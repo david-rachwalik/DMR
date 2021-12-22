@@ -15,17 +15,6 @@ namespace DMR.WebApp.Data
         {
         }
 
-        public DbSet<Movie> Movies { get; set; }
-
-        public DbSet<Course> Courses { get; set; }
-        public DbSet<Enrollment> Enrollments { get; set; }
-        public DbSet<Student> Students { get; set; }
-        public DbSet<Department> Departments { get; set; }
-        public DbSet<Instructor> Instructors { get; set; }
-        public DbSet<OfficeAssignment> OfficeAssignments { get; set; }
-        public DbSet<CourseAssignment> CourseAssignments { get; set; }
-
-
         // -------- Game Core Assets --------
         public DbSet<Attribute> Attributes { get; set; }
         public DbSet<Tag> Tags { get; set; }
@@ -35,12 +24,12 @@ namespace DMR.WebApp.Data
         public DbSet<UserProfile> UserProfiles { get; set; }
         public DbSet<SaveState> SaveStates { get; set; }
         public DbSet<Character> Characters { get; set; }
-        public DbSet<Relationship> Relationships { get; set; }
+        //public DbSet<Relationship> Relationships { get; set; }
 
         // -------- Game Template Assets --------
         public DbSet<SaveStateTemplate> SaveStateTemplates { get; set; }
         public DbSet<CharacterTemplate> CharacterTemplates { get; set; }
-        public DbSet<RelationshipTemplate> RelationshipTemplates { get; set; }
+        //public DbSet<RelationshipTemplate> RelationshipTemplates { get; set; }
         public DbSet<ItemTemplate> ItemTemplates { get; set; }
         public DbSet<LocationTemplate> LocationTemplates { get; set; }
         public DbSet<MomentTemplate> MomentTemplates { get; set; }
@@ -50,18 +39,6 @@ namespace DMR.WebApp.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Course>().ToTable("Course");
-            modelBuilder.Entity<Enrollment>().ToTable("Enrollment");
-            modelBuilder.Entity<Student>().ToTable("Student");
-            modelBuilder.Entity<Department>().ToTable("Department");
-            modelBuilder.Entity<Instructor>().ToTable("Instructor");
-            modelBuilder.Entity<OfficeAssignment>().ToTable("OfficeAssignment");
-            modelBuilder.Entity<CourseAssignment>().ToTable("CourseAssignment");
-
-            modelBuilder.Entity<CourseAssignment>()
-                .HasKey(c => new { c.CourseID, c.InstructorID });
-
-
             // -------- Game Core Configurations --------
             modelBuilder.ApplyConfiguration(new AttributeConfiguration());
             modelBuilder.ApplyConfiguration(new TagConfiguration());
@@ -71,19 +48,19 @@ namespace DMR.WebApp.Data
             modelBuilder.ApplyConfiguration(new UserProfileConfiguration());
             modelBuilder.ApplyConfiguration(new SaveStateConfiguration());
             modelBuilder.ApplyConfiguration(new CharacterConfiguration());
-            modelBuilder.ApplyConfiguration(new RelationshipConfiguration());
+            //modelBuilder.ApplyConfiguration(new RelationshipConfiguration());
 
             // -------- Game Template Configurations --------
             modelBuilder.ApplyConfiguration(new SaveStateTemplateConfiguration());
             modelBuilder.ApplyConfiguration(new CharacterTemplateConfiguration());
-            modelBuilder.ApplyConfiguration(new RelationshipTemplateConfiguration());
+            //modelBuilder.ApplyConfiguration(new RelationshipTemplateConfiguration());
             modelBuilder.ApplyConfiguration(new ItemTemplateConfiguration());
             modelBuilder.ApplyConfiguration(new LocationTemplateConfiguration());
             modelBuilder.ApplyConfiguration(new MomentTemplateConfiguration());
             modelBuilder.ApplyConfiguration(new SkillTemplateConfiguration());
             modelBuilder.ApplyConfiguration(new StoryTemplateConfiguration());
 
-            // TODO: create full line of relationships
+            // Flow of model relationships:
             // UserProfile => SaveState => Character => Item => Attribute
         }
     }

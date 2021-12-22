@@ -14,7 +14,7 @@ namespace DMR.WebApp.Models
         [StringLength(50, ErrorMessage = "Display name cannot be longer than 50 characters.")]
         [Display(Name = "Display Name")]
         public string Title { get; set; }
-        public string Description { get; set; }
+        public string? Description { get; set; }
         [Display(Name = "Token")]
         public Guid Who { get; set; }
         public char What { get; set; }

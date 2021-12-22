@@ -24,7 +24,7 @@
             string attributeName = Enum.GetName(typeof(WebApp.Areas.Game.Models.AttributeStyle), attributeStyle);
             string tabId = attributeName.ToLower() + "AttrTab";
 
-            <li role="presentation"><a href="#@tabId" aria-controls="@tabId" role="tab" data-toggle="tab">@attributeName</a></li>
+            <li role="presentation"><a href="#@tabId" aria-controls="@tabId" role="tab" data-bs-toggle="tab">@attributeName</a></li>
         }
     </ul>
 

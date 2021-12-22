@@ -1,10 +1,4 @@
-﻿using DMR.WebApp.Models;
-using DMR.WebApp.Areas.Game.Models;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Threading.Tasks;
+﻿using DMR.WebApp.Areas.Game.Models;
 using Attribute = DMR.WebApp.Areas.Game.Models.Attribute;
 
 namespace DMR.WebApp.Areas.Game.Data
