@@ -23,8 +23,8 @@ public class UserProfile : GameAsset
     public DateTime LoginPrevious { get; set; }
     public bool HideTutorialTips { get; set; }
     public bool ShowAdvancedTooltips { get; set; }
-    public Setting_TimeNotation FormatTime { get; set; }
-    public Setting_TemperatureDegree FormatTemperature { get; set; }
+    public Setting_TimeNotation FormatTime { get; set; } = Setting_TimeNotation.ISO8601;
+    public Setting_TemperatureDegree FormatTemperature { get; set; } = Setting_TemperatureDegree.Fahrenheit;
 
     public SaveState? SaveCurrent { get; set; }
     public IEnumerable<SaveState> Saves { get; set; }

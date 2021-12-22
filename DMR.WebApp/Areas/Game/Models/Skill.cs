@@ -14,14 +14,14 @@ public class Skill : GameAsset
     public SkillSubgroup Subgroup { get; set; }
     public int RankMax { get; set; }
     public int RankCurrent { get; set; }
-    public string Prerequisites { get; set; }
-    public string Effect { get; set; }
-    public string Note { get; set; }
+    public string? Prerequisites { get; set; }
+    public string? Effect { get; set; }
+    public string? Note { get; set; }
     public int LevelRequired { get; set; }
     public int SkillId { get; set; } // Parent Skill
     public int Cost { get; set; }
-    public Effect EffectImmediate { get; set; }
-    public Effect EffectOverTime { get; set; }
+    public Effect? EffectImmediate { get; set; }
+    public Effect? EffectOverTime { get; set; }
     public DateTimeOffset CastTime { get; set; }
     /*
         * Typically, melee abilities and spells are instant

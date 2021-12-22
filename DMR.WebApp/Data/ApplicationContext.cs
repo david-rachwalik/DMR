@@ -32,9 +32,9 @@ namespace DMR.WebApp.Data
         //public DbSet<RelationshipTemplate> RelationshipTemplates { get; set; }
         public DbSet<ItemTemplate> ItemTemplates { get; set; }
         public DbSet<LocationTemplate> LocationTemplates { get; set; }
-        public DbSet<MomentTemplate> MomentTemplates { get; set; }
+        //public DbSet<MomentTemplate> MomentTemplates { get; set; }
         public DbSet<SkillTemplate> SkillTemplates { get; set; }
-        public DbSet<StoryTemplate> StoryTemplates { get; set; }
+        //public DbSet<StoryTemplate> StoryTemplates { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -56,9 +56,9 @@ namespace DMR.WebApp.Data
             //modelBuilder.ApplyConfiguration(new RelationshipTemplateConfiguration());
             modelBuilder.ApplyConfiguration(new ItemTemplateConfiguration());
             modelBuilder.ApplyConfiguration(new LocationTemplateConfiguration());
-            modelBuilder.ApplyConfiguration(new MomentTemplateConfiguration());
+            //modelBuilder.ApplyConfiguration(new MomentTemplateConfiguration());
             modelBuilder.ApplyConfiguration(new SkillTemplateConfiguration());
-            modelBuilder.ApplyConfiguration(new StoryTemplateConfiguration());
+            //modelBuilder.ApplyConfiguration(new StoryTemplateConfiguration());
 
             // Flow of model relationships:
             // UserProfile => SaveState => Character => Item => Attribute
