@@ -1,52 +1,71 @@
 ﻿@page
 @model WebApp.Areas.Game.Pages.Attribute.IndexModel
-
 @{
     ViewData["Title"] = "Character Attributes";
 }
 
-<div style="position: relative;">
+<div class="my-4" style="position: relative;">
     <h2>@ViewData["Title"]</h2>
 
     <div style="position: absolute; top: 0; right: 0;">
         <a asp-page="./Create">Create New</a>
     </div>
 </div>
-<a href="https://wiki.smutosaur.us/CoC/Perk_(CoC)" target="_blank">CoC Revamp Wikia - Perks</a>
-<hr />
 
 
-<div id="attributeZone">
-    <!-- Nav tabs -->
-    <ul class="nav nav-tabs" role="tablist">
+@*<div class="card border-success">
+    <div class="card-header">Attribute Categories</div>
+    <div class="card-body">
         @foreach (WebApp.Areas.Game.Models.AttributeStyle attributeStyle in Enum.GetValues(typeof(WebApp.Areas.Game.Models.AttributeStyle)))
         {
             string attributeName = Enum.GetName(typeof(WebApp.Areas.Game.Models.AttributeStyle), attributeStyle);
-            string tabId = attributeName.ToLower() + "AttrTab";
+            string bsContentId = attributeName.ToLower() + "AttrTab";
 
-            <li role="presentation"><a href="#@tabId" aria-controls="@tabId" role="tab" data-bs-toggle="tab">@attributeName</a></li>
+            <button type="button" class="btn btn-sm btn-outline-info">@attributeName</button>
         }
-    </ul>
+    </div>
+</div>*@
 
-    <!-- Tab panes -->
-    <div class="tab-content">
-        @foreach (WebApp.Areas.Game.Models.AttributeStyle attributeStyle in Enum.GetValues(typeof(WebApp.Areas.Game.Models.AttributeStyle)))
-        {
-            string attributeName = Enum.GetName(typeof(WebApp.Areas.Game.Models.AttributeStyle), attributeStyle);
-            string tabId = attributeName.ToLower() + "AttrTab";
 
-            <div role="tabpanel" class="tab-pane" id="@tabId">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">@attributeName Attributes</div>
-                    <div class="panel-body">
-                        These empower the core essense of your character.
-                    </div>
+<!-- Nav tabs -->
+<ul class="nav nav-tabs px-3" role="tablist">
+    @foreach (WebApp.Areas.Game.Models.AttributeStyle attributeStyle in Enum.GetValues(typeof(WebApp.Areas.Game.Models.AttributeStyle)))
+    {
+        string attributeName = Enum.GetName(typeof(WebApp.Areas.Game.Models.AttributeStyle), attributeStyle);
+        string bsContentId = attributeName.ToLower() + "AttrTab";
+        string bsNavId = attributeName.ToLower() + "AttrPill";
+
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="@bsNavId" data-bs-toggle="tab" data-bs-target="#@bsContentId" type="button" role="tab" aria-controls="@bsContentId" aria-selected="false">@attributeName</button>
+        </li>
+    }
+</ul>
+
+
+<!-- Tab panes -->
+<div id="attributeZone" class="tab-content">
+    @foreach (WebApp.Areas.Game.Models.AttributeStyle attributeStyle in Enum.GetValues(typeof(WebApp.Areas.Game.Models.AttributeStyle)))
+    {
+        string attributeName = Enum.GetName(typeof(WebApp.Areas.Game.Models.AttributeStyle), attributeStyle);
+        string bsContentId = attributeName.ToLower() + "AttrTab";
+        string bsNavId = attributeName.ToLower() + "AttrPill";
+
+        <div id="@bsContentId" class="tab-pane" role="tabpanel" aria-labelledby="@bsNavId">
+
+            <div class="card border-success mb-3">
+                <div class="card-header">@attributeName Attributes</div>
+
+                <div class="card-body">
+                    @*<h5 class="card-title">@attributeName Attributes</h5>*@
+                    <p class="card-text">These empower the core essense of your character.</p>
+                    @*<a href="#" class="btn btn-primary">Go somewhere</a>*@
+                    @*<br />*@
 
                     <table class="table">
                         <thead>
                             <tr>
-                                <th>@Html.DisplayNameFor(m => m.FirstAttribute.Dimension)</th>
                                 <th>@Html.DisplayNameFor(m => m.FirstAttribute.Id)</th>
+                                <th>@Html.DisplayNameFor(m => m.FirstAttribute.Dimension)</th>
                                 <th>@Html.DisplayNameFor(m => m.FirstAttribute.Release)</th>
                                 <th>@Html.DisplayNameFor(m => m.FirstAttribute.Title)</th>
                                 <th>@Html.DisplayNameFor(m => m.FirstAttribute.Description)</th>
@@ -60,15 +79,16 @@
                                     <td>@Html.DisplayFor(m => item.Id)</td>
                                     <td>@Html.DisplayFor(m => item.Dimension)</td>
                                     <td>@Html.DisplayFor(m => item.Release)</td>
-                                    <td><a asp-page="./Edit" asp-route-id="@item.Id" title="@Html.DisplayFor(m => item.Abbreviation)">
+                                    <td>
+                                        <a asp-page="./Edit" asp-route-id="@item.Id" title="@Html.DisplayFor(m => item.Abbreviation)">
                                             @Html.DisplayFor(m => item.Title)
                                         </a>
                                     </td>
                                     <td>@Html.DisplayFor(m => item.Description)</td>
                                     @*<td>
-                                            <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
-                                            <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
-                                            <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                                        <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                                        <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                                        <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
                                         </td>*@
                                 </tr>
                             }
@@ -76,6 +96,11 @@
                     </table>
                 </div>
             </div>
-        }
-    </div>
+        </div>
+    }
 </div>
+<hr />
+<a href="https://ffxiv.consolegameswiki.com/wiki/Attributes" target="_blank" style="font-size: 0.75em;">FFXIV - Attributes</a> &#8226;
+<a href="https://wiki.smutosaur.us/CoC/Perk_(CoC)" target="_blank" style="font-size: 0.75em;">CoC Revamp Wikia - Perks</a>
+<br />
+<br />
