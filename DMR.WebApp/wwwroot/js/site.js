@@ -8,4 +8,12 @@ $(document).ready(function () {
     $navTabs.children("li").first().children("a").click();
     // Enable Bootstrap tooltips everywhere // https://getbootstrap.com/docs/4.6/components/tooltips
     $('[data-bs-toggle="tooltip"]').tooltip();
+
+    // Activate first tab if exists
+    const erpgeNav = $('#erpge .container .nav');
+    if (erpgeNav) {
+        const erpgeNavLinks = erpgeNav.find('.nav-link');
+        const erpgeNavLinkFirst = erpgeNavLinks.first('.nav-link');
+        if (erpgeNavLinkFirst) { erpgeNavLinkFirst.click(); }
+    }
 });
