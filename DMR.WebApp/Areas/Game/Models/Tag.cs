@@ -1,10 +1,9 @@
-﻿using DMR.WebApp.Areas.Game.Data;
+﻿using DMR.WebApp.Areas.Game.Data.Seeds;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System.ComponentModel.DataAnnotations;
 
 namespace DMR.WebApp.Areas.Game.Models;
-
 
 public class Tag : GameAsset
 {
@@ -30,7 +29,7 @@ class TagConfiguration : IEntityTypeConfiguration<Tag>
         builder.ToTable("Tag");
         builder.HasIndex(t => t.Title).IsUnique();
 
-        builder.HasData(TagData.Seed());
+        builder.HasData(TagSeed.Data());
     }
 }
 #endregion

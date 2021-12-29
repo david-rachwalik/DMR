@@ -1,11 +1,9 @@
-﻿using DMR.WebApp.Areas.Game.Data;
-using DMR.WebApp.Models;
+﻿using DMR.WebApp.Areas.Game.Data.Seeds;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System.ComponentModel.DataAnnotations;
 
 namespace DMR.WebApp.Areas.Game.Models;
-
 
 public class Attribute : GameAsset
 {
@@ -30,7 +28,7 @@ class AttributeConfiguration : IEntityTypeConfiguration<Attribute>
         builder.ToTable("Attribute");
         //builder.HasIndex(t => t.Abbreviation).IsUnique();
 
-        builder.HasData(AttributeData.Seed());
+        builder.HasData(AttributeSeed.Data());
     }
 }
 #endregion

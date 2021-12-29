@@ -1,10 +1,8 @@
-﻿using DMR.WebApp.Areas.Game.Data;
-using DMR.WebApp.Models;
+﻿using DMR.WebApp.Areas.Game.Data.Seeds;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace DMR.WebApp.Areas.Game.Models;
-
 
 // http://finalfantasy.wikia.com/wiki/Status_effect
 // https://ffxiv.consolegameswiki.com/wiki/Category:Status_Effects
@@ -34,7 +32,7 @@ class EffectConfiguration : IEntityTypeConfiguration<Effect>
     {
         builder.ToTable("Effect");
 
-        builder.HasData(EffectData.Seed());
+        builder.HasData(EffectSeed.Data());
     }
 }
 #endregion

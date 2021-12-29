@@ -1,11 +1,9 @@
-﻿using DMR.WebApp.Areas.Game.Data;
-using DMR.WebApp.Models;
+﻿using DMR.WebApp.Areas.Game.Data.Seeds;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System.ComponentModel.DataAnnotations;
 
 namespace DMR.WebApp.Areas.Game.Models;
-
 
 // Saves profile information that unlocks account-wide
 public class UserProfile : GameAsset
@@ -44,7 +42,7 @@ class UserProfileConfiguration : IEntityTypeConfiguration<UserProfile>
     {
         builder.ToTable("UserProfile");
 
-        builder.HasData(UserProfileData.Seed());
+        builder.HasData(UserProfileSeed.Data());
     }
 }
 #endregion

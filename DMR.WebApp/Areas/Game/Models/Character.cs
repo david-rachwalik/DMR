@@ -1,12 +1,10 @@
 ﻿using DMR.WebApp.Areas.Game.Models.CharacterBodyParts;
-using DMR.WebApp.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace DMR.WebApp.Areas.Game.Models;
-
 
 public class Character : GameAsset
 {

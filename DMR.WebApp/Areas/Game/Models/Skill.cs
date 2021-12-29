@@ -1,13 +1,10 @@
-﻿using DMR.WebApp.Areas.Game.Data;
-using DMR.WebApp.Models;
+﻿using DMR.WebApp.Areas.Game.Data.Seeds;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 
 namespace DMR.WebApp.Areas.Game.Models;
 
-
 // https://wiki.smutosaur.us/CoC/Special_Attacks
-
 public class Skill : GameAsset
 {
     public SkillStyle Style { get; set; }
@@ -43,7 +40,7 @@ class SkillConfiguration : IEntityTypeConfiguration<Skill>
         builder.ToTable("Skill");
         //builder.HasIndex(t => t.Abbreviation).IsUnique();
 
-        builder.HasData(SkillData.Seed());
+        builder.HasData(SkillSeed.Data());
     }
 }
 #endregion
