@@ -50,12 +50,12 @@ public enum ItemOrigin
 
 public enum ItemGroup
 {
-    Food = 1,
-    Consumable,
+    //Food = 1,
+    Consumable = 1,
     Apparel,        // Panties, thank you please
-    Accessory,
     Weapon,
     Armor,
+    Accessory,
     Trinket,
     Key
 }

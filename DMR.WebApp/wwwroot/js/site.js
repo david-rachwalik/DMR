@@ -10,10 +10,13 @@ $(document).ready(function () {
     $('[data-bs-toggle="tooltip"]').tooltip();
 
     // Activate first tab if exists
-    const erpgeNav = $('#erpge .container .nav');
+    const erpgeNav = $('#erpge .container .col-9 .nav');
+    //console.log('erpgeNav: ', erpgeNav);
     if (erpgeNav) {
         const erpgeNavLinks = erpgeNav.find('.nav-link');
+        //console.log('erpgeNavLinks: ', erpgeNavLinks);
         const erpgeNavLinkFirst = erpgeNavLinks.first('.nav-link');
+        //console.log('erpgeNavLinkFirst: ', erpgeNavLinkFirst);
         if (erpgeNavLinkFirst) { erpgeNavLinkFirst.click(); }
     }
 });

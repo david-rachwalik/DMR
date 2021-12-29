@@ -1,64 +1,68 @@
 ﻿@page
 @model WebApp.Areas.Game.Pages.Character.IndexModel
-
 @{
     ViewData["Title"] = "Characters";
 }
 
-<h2>@ViewData["Title"]</h2>
-<a href="http://coc-revamp.wikia.com/wiki/Characters">CoC Revamp Wikia - Characters</a>
-<a href="http://coc-revamp.wikia.com/wiki/Bestiary">CoC Revamp Wikia - Bestiary</a>
-<hr />
+<!-- Breadcrumbs -->
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a asp-area="" asp-page="/Index">Home</a></li>
+        <li class="breadcrumb-item"><a asp-area="Game" asp-page="/Index">eRPGe</a></li>
+        <li class="breadcrumb-item active" aria-current="page">@ViewData["Title"]</li>
+    </ol>
+</nav>
 
-<p>
-    <a asp-page="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                Name
-            </th>
-            <th>
-                @Html.DisplayNameFor(m => Model.Species)
-            </th>
-            <th>
-                @Html.DisplayNameFor(m => m.FirstCharacterTemplate.Skin)
-            </th>
-            <th>
-                @Html.DisplayNameFor(m => m.FirstCharacterTemplate.Birthdate)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var character in Model.CharacterTemplates)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(m => character.Title)
-                </td>
-                @*<td>
-                        @foreach (var tag in character.Species)
-                        {
-                            <span class="label label-info" title="@Html.DisplayFor(m => @tag.Description)">@Html.DisplayFor(m => @tag.Title)</span>
-                        }
-                    </td>*@
-                <td>
-                    <span class="label label-info" title="@Html.DisplayFor(m => m.CurrentSpecies.Description)">@Html.DisplayFor(m => m.CurrentSpecies.Title)</span>
-                </td>
-                <td>
-                    @Html.DisplayFor(m => character.Skin)
-                </td>
-                <td>
-                    @Html.DisplayFor(m => character.Birthdate)
-                </td>
-                <td>
-                    <a asp-page="./Edit" asp-route-id="@character.Id">Edit</a> |
-                    <a asp-page="./Details" asp-route-id="@character.Id">Details</a> |
-                    <a asp-page="./Delete" asp-route-id="@character.Id">Delete</a>
-                </td>
-            </tr>
-        }
-    </tbody>
-</table>
+
+<div class="my-4" style="position: relative;">
+    <h2>@ViewData["Title"]</h2>
+
+    <div style="position: absolute; top: 0; right: 0;">
+        <a asp-page="./Create">Create New</a>
+    </div>
+</div>
+
+
+<div class="card border-success mb-3">
+    <div class="card-header">@ViewData["Title"]</div>
+
+    <div class="card-body">
+        <p class="card-text">The various characters in game: NPCs, enemies, vendors, followers, etc.</p>
+
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>@Html.DisplayNameFor(m => Model.Species)</th>
+                    <th>@Html.DisplayNameFor(m => m.FirstCharacterTemplate.Skin)</th>
+                    <th>@Html.DisplayNameFor(m => m.FirstCharacterTemplate.Birthdate)</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var character in Model.CharacterTemplates)
+                {
+                    <tr>
+                        <td>
+                            <a asp-page="./Details" asp-route-id="@character.Id">
+                                @Html.DisplayFor(m => character.Title)
+                            </a>
+                        </td>
+                        <td>
+                            <span class="label label-info" title="@Html.DisplayFor(m => m.CurrentSpecies.Description)">
+                                @Html.DisplayFor(m => m.CurrentSpecies.Title)
+                            </span>
+                        </td>
+                        <td>@Html.DisplayFor(m => character.Skin)</td>
+                        <td>@Html.DisplayFor(m => character.Birthdate)</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+    </div>
+</div>
+<hr />
+<a href="http://coc-revamp.wikia.com/wiki/Characters" target="_blank" style="font-size: 0.75em;">CoC Revamp Wikia - Characters</a> &#8226;
+<a href="http://coc-revamp.wikia.com/wiki/Bestiary" target="_blank" style="font-size: 0.75em;">CoC Revamp Wikia - Bestiary</a>
+<br />
+<br />

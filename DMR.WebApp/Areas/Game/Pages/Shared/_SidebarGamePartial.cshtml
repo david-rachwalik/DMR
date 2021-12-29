@@ -1,0 +1,65 @@
+﻿@* https://getbootstrap.com/docs/5.0/components/offcanvas *@
+@* https://getbootstrap.com/docs/5.0/examples/sidebars *@
+<div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark rounded" style="max-width: 280px;">
+    <a class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-white text-decoration-none" asp-area="Game" asp-page="/Index">
+        <span class="fs-4">Erotic RPG Engine</span>
+    </a>
+    <hr />
+
+    <ul class="nav nav-pills flex-column mb-auto">
+        <li><a class="nav-link text-white">Core Assets</a></li>
+    </ul>
+    @*<ul class="btn-toggle-nav list-unstyled fw-normal px-4 small">*@
+    <ul class="nav nav-pills flex-column mb-auto px-4 pb-2 small fst-italic">
+        <li class="nav-item"><a class="link-info" asp-area="Game" asp-page="/Attribute/Index">Attributes</a></li>
+        <li class="nav-item"><a class="link-info" asp-area="Game" asp-page="/Effect/Index">Effects</a></li>
+        <li class="nav-item"><a class="link-danger" asp-area="Game" asp-page="/Tag/Index">Tags</a></li>
+    </ul>
+    
+    <ul class="nav nav-pills flex-column mb-auto">
+        <li><a class="nav-link text-white">Static Assets</a></li>
+    </ul>
+    <ul class="nav nav-pills flex-column mb-auto px-4 pb-2 small fst-italic">
+        <li class="nav-item"><a class="link-info" asp-area="Game" asp-page="/Item/Index">Items</a></li>
+        <li class="nav-item"><a class="link-info" asp-area="Game" asp-page="/Location/Index">Locations</a></li>
+        <li class="nav-item"><a class="link-danger" asp-area="Game" asp-page="/Moment/Index">Moments</a></li>
+        <li class="nav-item"><a class="link-danger" asp-area="Game" asp-page="/Skill/Index">Skills</a></li>
+    </ul>
+    
+    <ul class="nav nav-pills flex-column mb-auto">
+        <li><a class="nav-link text-white">Dynamic Assets</a></li>
+    </ul>
+    <ul class="nav nav-pills flex-column mb-auto px-4 pb-2 small fst-italic">
+        <li class="nav-item"><a class="link-info" asp-area="Game" asp-page="/Character/Index">Characters</a></li>
+        <li class="nav-item"><a class="link-light" asp-area="Game" asp-page="/Habit/Index">Habits</a></li>
+        <li class="nav-item"><a class="link-light" asp-area="Game" asp-page="/Relationship/Index">Relationships</a></li>
+        <li class="nav-item"><a class="link-light" asp-area="Game" asp-page="/SaveSlot/Index">Save Slots</a></li>
+        <li class="nav-item"><a class="link-light" asp-area="Game" asp-page="/UserProfile/Index">User Profiles</a></li>
+    </ul>
+
+
+    @*<ul class="nav nav-pills flex-column mb-auto">
+        <li><a href="#" class="nav-link text-white">Dashboard</a></li>
+        <li><a href="#" class="nav-link text-white">Orders</a></li>
+        <li><a href="#" class="nav-link text-white">Products</a></li>
+        <li><a href="#" class="nav-link text-white">Customers</a></li>
+    </ul>*@
+
+
+    @* --- User Profile Section --- *@
+    @*<hr />
+    <div class="dropdown">
+        <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
+            <strong>mdo</strong>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
+            <li><a class="dropdown-item" href="#">New project...</a></li>
+            <li><a class="dropdown-item" href="#">Settings</a></li>
+            <li><a class="dropdown-item" href="#">Profile</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Sign out</a></li>
+        </ul>
+    </div>*@
+
+</div>

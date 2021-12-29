@@ -1,94 +1,83 @@
 ﻿@page "{id:int?}"
 @model WebApp.Areas.Game.Pages.Item.IndexModel
-
 @{
     ViewData["Title"] = "Items";
 }
 
-<div style="position: relative;">
+<!-- Breadcrumbs -->
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a asp-area="" asp-page="/Index">Home</a></li>
+        <li class="breadcrumb-item"><a asp-area="Game" asp-page="/Index">eRPGe</a></li>
+        <li class="breadcrumb-item active" aria-current="page">@ViewData["Title"]</li>
+    </ol>
+</nav>
+
+
+<div class="my-4" style="position: relative;">
     <h2>@ViewData["Title"]</h2>
 
     <div style="position: absolute; top: 0; right: 0;">
         <a asp-page="./Create">Create New</a>
     </div>
 </div>
-<a href="http://coc-revamp.wikia.com/wiki/Items" target="_blank">CoC Revamp Wikia - Items</a>
-<hr />
 
 
-<div id="itemZone">
-    <!-- Nav tabs -->
-    <ul class="nav nav-tabs" role="tablist">
-        @foreach (WebApp.Areas.Game.Models.ItemGroup itemGroup in Enum.GetValues(typeof(WebApp.Areas.Game.Models.ItemGroup)))
-        {
-            string itemName = Enum.GetName(typeof(WebApp.Areas.Game.Models.ItemGroup), itemGroup);
-            string tabId = itemName.ToLower() + "ItemTab";
+<!-- Nav tabs -->
+<ul class="nav nav-tabs px-3" role="tablist">
+    @foreach (WebApp.Areas.Game.Models.ItemGroup itemGroup in Enum.GetValues(typeof(WebApp.Areas.Game.Models.ItemGroup)))
+    {
+        string itemName = Enum.GetName(typeof(WebApp.Areas.Game.Models.ItemGroup), itemGroup);
+        string bsContentId = itemName.ToLower() + "ItemTab";
+        string bsNavId = itemName.ToLower() + "ItemPill";
 
-            <li role="presentation"><a href="#@tabId" aria-controls="@tabId" role="tab" data-bs-toggle="tab">@itemName</a></li>
-        }
-    </ul>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link btn-sm" id="@bsNavId" data-bs-toggle="tab" data-bs-target="#@bsContentId" type="button" role="tab" aria-controls="@bsContentId" aria-selected="false">@itemName</button>
+        </li>
+    }
+</ul>
 
-    <!-- Tab panes -->
-    <div class="tab-content">
-        @foreach (WebApp.Areas.Game.Models.ItemGroup itemGroup in Enum.GetValues(typeof(WebApp.Areas.Game.Models.ItemGroup)))
-        {
-            string itemName = Enum.GetName(typeof(WebApp.Areas.Game.Models.ItemGroup), itemGroup);
-            string tabId = itemName.ToLower() + "ItemTab";
 
-            <div role="tabpanel" class="tab-pane" id="@tabId">
-                <div class="panel panel-primary">
-                    <div class="panel-heading">@itemName Items</div>
-                    <div class="panel-body">
-                        These empower the core essense of your character.
-                    </div>
+<!-- Tab panes -->
+<div id="itemZone" class="tab-content">
+    @foreach (WebApp.Areas.Game.Models.ItemGroup itemGroup in Enum.GetValues(typeof(WebApp.Areas.Game.Models.ItemGroup)))
+    {
+        string itemName = Enum.GetName(typeof(WebApp.Areas.Game.Models.ItemGroup), itemGroup);
+        string bsContentId = itemName.ToLower() + "ItemTab";
+        string bsNavId = itemName.ToLower() + "ItemPill";
+
+        <div id="@bsContentId" class="tab-pane" role="tabpanel" aria-labelledby="@bsNavId">
+
+            <div class="card border-success mb-3">
+                <div class="card-header">@itemName Attributes</div>
+
+                <div class="card-body">
+                    @*<h5 class="card-title">@itemName Items</h5>*@
+                    <p class="card-text">These empower the core essense of your character.</p>
 
                     @if (Model.SelectedItem == null)
                     {
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th>
-                                        @Html.DisplayNameFor(m => m.FirstItem.Title)
-                                    </th>
-                                    <th>
-                                        @Html.DisplayNameFor(m => m.FirstItem.Description)
-                                    </th>
-                                    <th>
-                                        @Html.DisplayNameFor(m => m.FirstItem.Origin)
-                                    </th>
-                                    <th>
-                                        @Html.DisplayNameFor(m => m.FirstItem.Group)
-                                    </th>
-                                    <th>
-                                        @Html.DisplayNameFor(m => m.FirstItem.Cost)
-                                    </th>
-                                    <th>
-                                        @Html.DisplayNameFor(m => m.FirstItem.Sale)
-                                    </th>
+                                    <th>@Html.DisplayNameFor(m => m.FirstItem.Title)</th>
+                                    <th>@Html.DisplayNameFor(m => m.FirstItem.Description)</th>
+                                    <th>@Html.DisplayNameFor(m => m.FirstItem.Origin)</th>
+                                    <th>@Html.DisplayNameFor(m => m.FirstItem.Group)</th>
+                                    <th>@Html.DisplayNameFor(m => m.FirstItem.Cost)</th>
+                                    <th>@Html.DisplayNameFor(m => m.FirstItem.Sale)</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach (var item in Model.Items)
+                                @foreach (var item in Model.Items.Where(s => s.Group == itemGroup).ToList())
                                 {
                                     <tr>
-                                        <td>
-                                            <a asp-page="./@item.Id" asp-route-id="@item.Id">@Html.DisplayFor(m => item.Title)</a>
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(m => item.Description)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(m => item.Origin)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(m => item.Group)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(m => item.Cost)
-                                        </td>
-                                        <td>
-                                            @Html.DisplayFor(m => item.Sale)
-                                        </td>
+                                        <td><a asp-page="./@item.Id" asp-route-id="@item.Id">@Html.DisplayFor(m => item.Title)</a></td>
+                                        <td>@Html.DisplayFor(m => item.Description)</td>
+                                        <td>@Html.DisplayFor(m => item.Origin)</td>
+                                        <td>@Html.DisplayFor(m => item.Group)</td>
+                                        <td>@Html.DisplayFor(m => item.Cost)</td>
+                                        <td>@Html.DisplayFor(m => item.Sale)</td>
                                     </tr>
                                 }
                             </tbody>
@@ -99,52 +88,33 @@
                         <table class="table">
                             <thead>
                                 <tr>
-                                    <th>
-                                        @Html.DisplayNameFor(m => m.SelectedItem.Title)
-                                    </th>
-                                    <th>
-                                        @Html.DisplayNameFor(m => m.SelectedItem.Description)
-                                    </th>
-                                    <th>
-                                        @Html.DisplayNameFor(m => m.SelectedItem.Origin)
-                                    </th>
-                                    <th>
-                                        @Html.DisplayNameFor(m => m.SelectedItem.Group)
-                                    </th>
-                                    <th>
-                                        @Html.DisplayNameFor(m => m.SelectedItem.Cost)
-                                    </th>
-                                    <th>
-                                        @Html.DisplayNameFor(m => m.SelectedItem.Sale)
-                                    </th>
+                                    <th>@Html.DisplayNameFor(m => m.SelectedItem.Title)</th>
+                                    <th>@Html.DisplayNameFor(m => m.SelectedItem.Description)</th>
+                                    <th>@Html.DisplayNameFor(m => m.SelectedItem.Origin)</th>
+                                    <th>@Html.DisplayNameFor(m => m.SelectedItem.Group)</th>
+                                    <th>@Html.DisplayNameFor(m => m.SelectedItem.Cost)</th>
+                                    <th>@Html.DisplayNameFor(m => m.SelectedItem.Sale)</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td>
-                                        <a asp-page="./@Model.SelectedItem.Id" asp-route-id="@Model.SelectedItem.Id">@Html.DisplayFor(m => m.SelectedItem.Title)</a>
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(m => m.SelectedItem.Description)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(m => m.SelectedItem.Origin)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(m => m.SelectedItem.Group)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(m => m.SelectedItem.Cost)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(m => m.SelectedItem.Sale)
-                                    </td>
+                                    <td><a asp-page="./@Model.SelectedItem.Id" asp-route-id="@Model.SelectedItem.Id">@Html.DisplayFor(m => m.SelectedItem.Title)</a></td>
+                                    <td>@Html.DisplayFor(m => m.SelectedItem.Description)</td>
+                                    <td>@Html.DisplayFor(m => m.SelectedItem.Origin)</td>
+                                    <td>@Html.DisplayFor(m => m.SelectedItem.Group)</td>
+                                    <td>@Html.DisplayFor(m => m.SelectedItem.Cost)</td>
+                                    <td>@Html.DisplayFor(m => m.SelectedItem.Sale)</td>
                                 </tr>
                             </tbody>
                         </table>
                     }
                 </div>
             </div>
-        }
-    </div>
+        </div>
+    }
 </div>
+<hr />
+<a href="https://ffxiv.consolegameswiki.com/wiki/Items" target="_blank" style="font-size: 0.75em;">FFXIV - Items</a> &#8226;
+<a href="http://coc-revamp.wikia.com/wiki/Items" target="_blank" style="font-size: 0.75em;">CoC Revamp Wikia - Items</a>
+<br />
+<br />

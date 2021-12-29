@@ -20,11 +20,18 @@
     <partial name="_CookieConsentPartial" />
 
     <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; 2021 - BootleySqueeDoodle</p>
-        </footer>
+        <div class="row">
+            <div class="col-3">
+                <partial name="_SidebarGamePartial" />
+            </div>
+            <div class="col-9">
+                @RenderBody()
+                <hr />
+                <footer>
+                    <p>&copy; 2021 - BootleySqueeDoodle</p>
+                </footer>
+            </div>
+        </div>
     </div>
 
     <partial name="_MainScriptsPartial" />

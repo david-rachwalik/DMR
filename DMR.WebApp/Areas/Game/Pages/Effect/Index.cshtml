@@ -1,9 +1,17 @@
 ﻿@page
 @model WebApp.Areas.Game.Pages.Effect.IndexModel
-
 @{
     ViewData["Title"] = "Effects";
 }
+
+<!-- Breadcrumbs -->
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a asp-area="" asp-page="/Index">Home</a></li>
+        <li class="breadcrumb-item"><a asp-area="Game" asp-page="/Index">eRPGe</a></li>
+        <li class="breadcrumb-item active" aria-current="page">@ViewData["Title"]</li>
+    </ol>
+</nav>
 
 
 <h2>@ViewData["Title"]</h2>
