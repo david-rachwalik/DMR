@@ -1,0 +1,19 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - David-Rachwalik</title>
+
+    <partial name="_MainStylesPartial" />
+</head>
+<body id="dr_navmenu_main">
+    <partial name="_NavbarAreaPartial" />
+    @*<partial name="_NavbarGamePartial" />*@
+    @RenderBody()
+    <partial name="_FooterPartial" />
+
+    <partial name="_MainScriptsPartial" />
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
